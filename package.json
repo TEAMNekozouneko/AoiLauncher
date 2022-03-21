@@ -1,13 +1,13 @@
 {
-  "name": "numalauncher",
-  "version": "2.0.5",
-  "productName": "NumaLauncher",
-  "description": "沼でも使えるMinecraftランチャー",
-  "author": "Daniel Scalzi (https://github.com/dscalzi/), Kamesuta (https://github.com/Kamesuta/)",
-  "license": "UNLICENSED",
-  "homepage": "https://github.com/TeamKun/NumaLauncher",
+  "name": "aoilauncher",
+  "version": "20.0.0",
+  "productName": "AoiLauncher",
+  "description": "あほでも使えるマイクラランチャー",
+  "author": "Daniel Scalzi (https://github.com/dscalzi/), Kamesuta (https://github.com/Kamesuta/), Taitaitatata (https://github.com/Taitaitatata)",
+  "license": "MIT",
+  "homepage": "https://github.com/TEAMNekozouneko/AoiLauncher",
   "bugs": {
-    "url": "https://github.com/TeamKun/NumaLauncher/issues"
+    "url": "https://github.com/TEAMNekozouneko/AoiLauncher/issues"
   },
   "private": true,
   "main": "index.js",
@@ -52,6 +52,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TeamKun/NumaLauncher.git"
+    "url": "git+https://github.com/TEAMNekozouneko/AoiLauncher.git"
   }
 }
