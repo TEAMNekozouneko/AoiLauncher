@@ -1,8 +1,8 @@
 <p align="center"><img src="./app/assets/images/SealCircle.svg" width="150px" height="150px" alt="aventium softworks"></p>
 
-<h1 align="center">Helios Launcher</h1>
+<h1 align="center">Aoi Launcher</h1>
 
-<em><h5 align="center">(formerly Electron Launcher)</h5></em>
+<em><h5 align="center">(Electonで動くランチャー)</h5></em>
 
 [<p align="center"><img src="https://img.shields.io/travis/dscalzi/HeliosLauncher.svg?style=for-the-badge" alt="travis">](https://travis-ci.org/dscalzi/HeliosLauncher) [<img src="https://img.shields.io/github/downloads/dscalzi/HeliosLauncher/total.svg?style=for-the-badge" alt="downloads">](https://github.com/dscalzi/HeliosLauncher/releases) <img src="https://forthebadge.com/images/badges/winter-is-coming.svg"  height="28px" alt="stark"></p>
 
@@ -11,10 +11,10 @@
 ![Screenshot 1](https://i.imgur.com/6o7SmH6.png)
 ![Screenshot 2](https://i.imgur.com/x3B34n1.png)
 
-## Features
+## 機能
 
-* 🔒 Full account management.
-  * Add multiple accounts and easily switch between them.
+* 🔒 アカウント管理機能
+  * 複数のマイクラアカウントを追加できます。
   * Credentials are never stored and transmitted directly to Mojang.
 * 📂 Efficient asset management.
   * Receive client updates as soon as we release them.
@@ -38,16 +38,16 @@ This is not an exhaustive list. Download and install the launcher to gauge all i
 
 ## Downloads
 
-You can download from [GitHub Releases](https://github.com/dscalzi/HeliosLauncher/releases)
+[GitHubのリリースページ](https://github.com/TEAMNekozouneko/AoiLauncher/releases)からダウンロードできます。
 
-#### Latest Release
+#### 最新リリース
 
 [![](https://img.shields.io/github/release/dscalzi/HeliosLauncher.svg?style=flat-square)](https://github.com/dscalzi/HeliosLauncher/releases/latest)
 
-#### Latest Pre-Release
+#### 最新プレリリース
 [![](https://img.shields.io/github/release/dscalzi/HeliosLauncher/all.svg?style=flat-square)](https://github.com/dscalzi/HeliosLauncher/releases)
 
-**Supported Platforms**
+**サポートされたプラットフォーム**
 
 If you download from the [Releases](https://github.com/dscalzi/HeliosLauncher/releases) tab, select the installer for your system.
 
@@ -57,12 +57,12 @@ If you download from the [Releases](https://github.com/dscalzi/HeliosLauncher/re
 | macOS | `Helios-Launcher-setup-VERSION.dmg` |
 | Linux x64 | `Helios-Launcher-setup-VERSION.AppImage` |
 
-## Console
+## コンソール
 
 To open the console, use the following keybind.
 
 ```console
-ctrl + shift + i
+Ctrl + Shift + I
 ```
 
 Ensure that you have the console tab selected. Do not paste anything into the console unless you are 100% sure of what it will do. Pasting the wrong thing can expose sensitive information.
