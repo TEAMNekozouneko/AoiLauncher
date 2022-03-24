@@ -12,7 +12,7 @@
     "servers": [
         {
             "id": "WesterosCraft-1.12.2",
-            "name": "AOI-Test (Debug)",
+            "name": "AOI-Test2 (Debug2)",
             "description": "New 1.12.2 production server.",
             "icon": "http://mc.westeroscraft.com/WesterosCraftLauncher/files/server-prod.png",
             "version": "4.6.5",
