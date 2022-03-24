@@ -21,7 +21,7 @@ builder.build({
         appId: 'aoilauncher',
         productName: 'AoiLauncher',
         artifactName: '${productName}-setup-${version}.${ext}',
-        copyright: 'Copyright © 2018-2020 Daniel Scalzi, 2020 Kamesuta',
+        copyright: 'Copyright © 2018-2020 Daniel Scalzi, 2020 Kamesuta, 2022 Taitaitatata, runq_JP',
         directories: {
             buildResources: 'build',
             output: 'dist'
@@ -46,10 +46,10 @@ builder.build({
         },
         linux: {
             target: 'AppImage',
-            maintainer: 'Daniel Scalzi, Kamesuta',
-            vendor: 'Daniel Scalzi, Kamesuta',
-            synopsis: '沼でも使えるMinecraftランチャー',
-            description: '参加型に参加するためのすべてがここに。Mod、コンフィグ、アップデートが全自動で揃います。',
+            maintainer: 'Daniel Scalzi, Kamesuta, Taitaitatata, Runq_JP',
+            vendor: 'Daniel Scalzi, Kamesuta, Taitaitatata, Runq_JP',
+            synopsis: '3歳でも使えるMinecraftランチャー',
+            description: '3歳でもマイクラが簡単に全自動で起動できるランチャーです。',
             category: 'Game'
         },
         compression: 'maximum',
