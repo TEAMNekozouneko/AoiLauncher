@@ -26,7 +26,7 @@
                     "name": "Minecraft Forge",
                     "type": "ForgeHosted",
                     "artifact": {
-                        "size": 4884700,
+                        "size": 6909952,
                         "MD5": "a2643d3fd476d68daeba3933de73321b",
                         "url": "https://raw.githubusercontent.com/TEAMNekozouneko/AoiLauncher/master/docs/packs/1.18.2/forge-1.18.2-40.0.25-installer.jar"
                     },
