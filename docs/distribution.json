@@ -14,7 +14,7 @@
             "id": "Test-1.18.2",
             "name": "配信サーバーパック",
             "description": "配信サーバー参加用",
-            "icon": "http://mc.westeroscraft.com/WesterosCraftLauncher/files/server-prod.png",
+            "icon": "https://github.com/TEAMNekozouneko/AoiLauncher/blob/master/docs/packs/1.18.2/icon.jpg?raw=true",
             "version": "4.6.5",
             "address": "nekozouneko.ddns.net:25565",
             "minecraftVersion": "1.18.2",
