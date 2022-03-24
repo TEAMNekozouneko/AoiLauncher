@@ -6,7 +6,7 @@
         "smallImageKey": "seal-circle"
     },
     "java": {
-        "oracle": "http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html"
+        "oracle": "https://github.com/AdoptOpenJDK/openjdk17-binaries/archive/refs/tags/jdk-2021-05-07-13-31.zip"
     },
     "rss": "https://westeroscraft.com/articles/index.rss",
     "servers": [
