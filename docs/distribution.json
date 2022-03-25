@@ -12,8 +12,8 @@
     "servers": [
         {
             "id": "Test-1.18.2",
-            "name": "配信サーバーパック",
-            "description": "配信サーバー参加用",
+            "name": "配信サーバーパック (1.18.2)",
+            "description": "配信サーバー参加用 (1.18.2)",
             "icon": "https://github.com/TEAMNekozouneko/AoiLauncher/blob/master/docs/packs/1.18.2/icon.jpg?raw=true",
             "version": "1.0.0",
             "address": "nekozouneko.ddns.net:25565",
