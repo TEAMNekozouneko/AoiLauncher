@@ -41,13 +41,13 @@
         },
         {
             "id": "Test-1.12.2",
-            "name": "配信サーバーパック",
-            "description": "配信サーバー参加用",
+            "name": "配信サーバーパック (1.12.2)",
+            "description": "配信サーバー参加用 (1.12.2)",
             "icon": "https://github.com/TEAMNekozouneko/AoiLauncher/blob/master/docs/packs/1.18.2/icon.jpg?raw=true",
-            "version": "4.6.5",
+            "version": "1.0.0",
             "address": "nekozouneko.ddns.net:25565",
-            "minecraftVersion": "1.18.2",
-            "mainServer": true,
+            "minecraftVersion": "1.12.2",
+            "mainServer": false,
             "autoconnect": true,
             "discord": {
                 "shortId": "Minecraft",
@@ -56,12 +56,12 @@
             },
             "modules": [
                 {
-                    "id": "net.minecraftforge:forge-1.18.2-40.0.25:installer",
+                    "id": "net.minecraftforge:forge-1.12.2-14.23.5.2859:installer",
                     "name": "Minecraft Forge",
                     "type": "ForgeHosted",
                     "artifact": {
-                        "size": 6908646,
-                        "MD5": "a2643d3fd476d68daeba3933de73321b",
+                        "size": 4611340,
+                        "MD5": "134c4cf744d42ebafac330646b277fb4",
                         "url": "https://raw.githubusercontent.com/TEAMNekozouneko/AoiLauncher/master/docs/packs/1.18.2/forge-1.18.2-40.0.25-installer.jar"
                     },
                     "subModules": []
