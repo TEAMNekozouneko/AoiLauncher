@@ -2,8 +2,8 @@
     "version": "1.0.0",
     "discord": {
         "clientId": "956748703778107432",
-        "smallImageText": "Aoi Launcher",
-        "smallImageKey": "nekozouneko"
+        "smallImageText": "あおいランチャーでプレイ中",
+        "smallImageKey": "launcher-icon"
     },
     "java": {
         "oracle": "https://github.com/AdoptOpenJDK/openjdk17-binaries/archive/refs/tags/jdk-2021-05-07-13-31.zip"
@@ -23,7 +23,7 @@
             "discord": {
                 "shortId": "Minecraft",
                 "largeImageText": "プレイ中",
-                "largeImageKey": "grassblock"
+                "largeImageKey": "nekozouneko"
             },
             "modules": [
                 {
@@ -316,7 +316,7 @@
             "discord": {
                 "shortId": "Minecraft",
                 "largeImageText": "プレイ中",
-                "largeImageKey": "grassblock"
+                "largeImageKey": "hibiki"
             },
             "modules": [
                 {
