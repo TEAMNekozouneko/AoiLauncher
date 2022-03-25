@@ -28,11 +28,11 @@
             "modules": [
                 {
                     "id": "net.minecraftforge:forge-1.18.2-40.0.25:installer",
-                    "name": "Minecraft Forge",
-                    "type": "ForgeHosted",
+                    "name": "Minecraft Forge (1.18.2)",
+                    "type": "Forge",
                     "artifact": {
-                        "size": 6908646,
-                        "MD5": "a2643d3fd476d68daeba3933de73321b",
+                        "size": 4466148,
+                        "MD5": "2b5b6ccfa3c6ffcea9073d13d1ec5236",
                         "url": "https://raw.githubusercontent.com/TEAMNekozouneko/AoiLauncher/master/docs/packs/1.18.2/forge-1.18.2-40.0.25-installer.jar"
                     },
                     "subModules": []
