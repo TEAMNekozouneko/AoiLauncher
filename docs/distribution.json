@@ -33,6 +33,34 @@
                     "subModules": []
                 }
             ]
+        },
+        {
+            "id": "Test-1.12.2",
+            "name": "配信1.12.2パック",
+            "icon": "https://github.com/TEAMNekozouneko/AoiLauncher/blob/master/docs/packs/1.18.2/icon.jpg?raw=true",
+            "description": "軽量な1.12.2でプレイ!",
+            "version": "4.6.5",
+            "address": "nekozouneko.ddns.net:25565",
+            "minecraftVersion": "1.12.2",
+            "mainServer": true,
+            "autoconnect": true,
+            "discord": {
+                "shortId": "Minecraft",
+                "largeImageText": "Minecraft",
+                "largeImageKey": "pack_numa"
+            },
+            "modules": [
+                {
+                    "id": "net.minecraftforge:forge:1.12.2-14.23.5.2860:universal",
+                    "name": "Minecraft Forge",
+                    "type": "ForgeHosted",
+                    "artifact": {
+                      "size": 4466148,
+                      "MD5": "2b5b6ccfa3c6ffcea9073d13d1ec5236",
+                      "url": "https://raw.githubusercontent.com/TeamKun/ModPacks/deploy/repo/lib/net/minecraftforge/forge/1.12.2-14.23.5.2860/forge-1.12.2-14.23.5.2860-universal.jar"
+                    }
+                }
+            ]
         }
     ]
 }
