@@ -324,7 +324,7 @@ ipcRenderer.on('MSALoginWindowReply', (event, ...args) => {
                 return
             }
             case 'AuthNotFinished': {
-                setOverlayContent('ERROR', 'NumaLauncherを使用するには、ログインが必要です。ログインに成功すると、ウィンドウは自動的に閉じます。', 'OK')
+                setOverlayContent('ERROR', 'AoiLauncherを使用するには、ログインが必要です。ログインに成功すると、ウィンドウは自動的に閉じます。', 'OK')
                 setOverlayHandler(() => {
                     toggleOverlay(false)
                     toggleOverlay(false, false, 'msOverlay')

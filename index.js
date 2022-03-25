@@ -96,7 +96,7 @@ ipcMain.on('distributionIndexDone', (event, res) => {
     // ダウンロードID管理
     let downloadIndex = 0
     // ダウンロードフォルダ
-    const downloadDirectory = path.join(app.getPath('temp'), 'NumaLauncher', 'ManualDownloads')
+    const downloadDirectory = path.join(app.getPath('temp'), 'AoiLauncher', 'ManualDownloads')
     // IDでウィンドウを閉じる
     ipcMain.on('closeManualWindow', (ipcEvent, index) => {
         // IDを探してウィンドウを閉じる

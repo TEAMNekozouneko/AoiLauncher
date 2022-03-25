@@ -345,7 +345,7 @@ class ProcessBuilder {
 
        // Java Arguments
         if(process.platform === 'darwin'){
-            args.push('-Xdock:name=NumaLauncher')
+            args.push('-Xdock:name=AoiLauncher')
             args.push('-Xdock:icon=' + path.join(__dirname, '..', 'images', 'minecraft.icns'))
         }
         args.push('-Xmx' + ConfigManager.getMaxRAM())
@@ -384,7 +384,7 @@ class ProcessBuilder {
 
         // Java Arguments
         if(process.platform === 'darwin'){
-            args.push('-Xdock:name=NumaLauncher')
+            args.push('-Xdock:name=AoiLauncher')
             args.push('-Xdock:icon=' + path.join(__dirname, '..', 'images', 'minecraft.icns'))
         }
         args.push('-Xmx' + ConfigManager.getMaxRAM())

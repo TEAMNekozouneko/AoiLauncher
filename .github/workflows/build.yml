@@ -23,12 +23,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ steps.get_version.outputs.version }}
-          release_name: NumaLauncher - ${{ steps.get_version.outputs.version }}
+          release_name: AoiLauncher - ${{ steps.get_version.outputs.version }}
           body: |
             ### ▼ご使用のOSのインストーラーをダウンロードしてください。
-            [Windows](https://github.com/${{ github.repository }}/releases/download/${{ steps.get_version.outputs.version }}/NumaLauncher-setup-${{ steps.get_version.outputs.version-without-v }}.exe)
-            [Mac OS X](https://github.com/${{ github.repository }}/releases/download/${{ steps.get_version.outputs.version }}/NumaLauncher-setup-${{ steps.get_version.outputs.version-without-v }}.dmg)
-            [Linux](https://github.com/${{ github.repository }}/releases/download/${{ steps.get_version.outputs.version }}/NumaLauncher-setup-${{ steps.get_version.outputs.version-without-v }}.AppImage)
+            [Windows](https://github.com/${{ github.repository }}/releases/download/${{ steps.get_version.outputs.version }}/AoiLauncher-setup-${{ steps.get_version.outputs.version-without-v }}.exe)
+            [Mac OS X](https://github.com/${{ github.repository }}/releases/download/${{ steps.get_version.outputs.version }}/AoiLauncher-setup-${{ steps.get_version.outputs.version-without-v }}.dmg)
+            [Linux](https://github.com/${{ github.repository }}/releases/download/${{ steps.get_version.outputs.version }}/AoiLauncher-setup-${{ steps.get_version.outputs.version-without-v }}.AppImage)
 
             ### ビルド情報
             ${{ steps.get_version.outputs.version }} by ${{ github.actor }}
@@ -114,7 +114,7 @@ jobs:
         name: Upload Release File - MacOS1
         if: matrix.os == 'macos-latest'
         with:
-          files: dist/latest-mac.yml;dist/NumaLauncher-setup-${{ steps.get_version.outputs.version-without-v }}.{dmg,dmg.blockmap}
+          files: dist/latest-mac.yml;dist/AoiLauncher-setup-${{ steps.get_version.outputs.version-without-v }}.{dmg,dmg.blockmap}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           release-tag: ${{ steps.get_version.outputs.version }}
 
@@ -122,7 +122,7 @@ jobs:
         name: Upload Release File - Windows1
         if: matrix.os == 'windows-latest'
         with:
-          files: dist/latest.yml;dist/NumaLauncher-setup-${{ steps.get_version.outputs.version-without-v }}.{exe,exe.blockmap}
+          files: dist/latest.yml;dist/AoiLauncher-setup-${{ steps.get_version.outputs.version-without-v }}.{exe,exe.blockmap}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           release-tag: ${{ steps.get_version.outputs.version }}
 
@@ -130,7 +130,7 @@ jobs:
         name: Upload Release File - Ubuntu1
         if: matrix.os == 'ubuntu-latest'
         with:
-          files: dist/latest-linux.yml;dist/NumaLauncher-setup-${{ steps.get_version.outputs.version-without-v }}.AppImage
+          files: dist/latest-linux.yml;dist/AoiLauncher-setup-${{ steps.get_version.outputs.version-without-v }}.AppImage
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           release-tag: ${{ steps.get_version.outputs.version }}
 
