@@ -309,7 +309,7 @@
             "description": "響さん主催のModサーバー参加用 (1.12.2)",
             "icon": "https://cdn.discordapp.com/avatars/797465322604068865/79185ca71082e52dd3bb927cac3e05ed.png?size=1024",
             "version": "1.0.0",
-            "address": "instructions-place.craft.playit.gg",
+            "address": "word-considerable.craft.playit.gg",
             "minecraftVersion": "1.12.2",
             "mainServer": false,
             "autoconnect": true,
