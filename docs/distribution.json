@@ -285,6 +285,20 @@
                         }
                       }
                     ]
+                },
+                {
+                    "id": "com.viaversion:viaforge:1.12.2-1.0.0@jar",
+                    "name": "ViaForge",
+                    "type": "ForgeMod",
+                    "artifact": {
+                        "size": 7723353,
+                        "MD5": "998b3af9e657aacbd198e75d7d4f78fc",
+                        "url": "https://raw.githubusercontent.com/TEAMNekozouneko/AoiLauncher/master/docs/packs/1.12.2/mods/viaforge-1.12.2-1.0.0.jar"
+                    },
+                    "required": {
+                        "value": false,
+                        "def": false
+                    }
                 }
             ]
         }
