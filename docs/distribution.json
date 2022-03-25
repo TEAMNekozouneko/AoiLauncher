@@ -1,9 +1,9 @@
 {
     "version": "1.0.0",
     "discord": {
-        "clientId": "385581240906022916",
-        "smallImageText": "WesterosCraft",
-        "smallImageKey": "seal-circle"
+        "clientId": "956748703778107432",
+        "smallImageText": "Aoi Launcher",
+        "smallImageKey": "nekozouneko"
     },
     "java": {
         "oracle": "https://github.com/AdoptOpenJDK/openjdk17-binaries/archive/refs/tags/jdk-2021-05-07-13-31.zip"
@@ -20,6 +20,11 @@
             "minecraftVersion": "1.18.2",
             "mainServer": true,
             "autoconnect": true,
+            "discord": {
+                "shortId": "Minecraft",
+                "largeImageText": "プレイ中",
+                "largeImageKey": "grassblock"
+            },
             "modules": [
                 {
                     "id": "net.minecraftforge:forge-1.18.2-40.0.25:installer",
@@ -42,7 +47,7 @@
             "version": "1.0.0",
             "address": "nekozouneko.ddns.net:25565",
             "minecraftVersion": "1.12.2",
-            "mainServer": true,
+            "mainServer": false,
             "autoconnect": true,
             "modules": [
                 {
