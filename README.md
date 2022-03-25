@@ -2,11 +2,7 @@
 
 <h1 align="center">Aoi Launcher</h1>
 
-<em><h5 align="center">(Electonで動くランチャー)</h5></em>
-
-[<p align="center"><img src="https://img.shields.io/travis/dscalzi/HeliosLauncher.svg?style=for-the-badge" alt="travis">](https://travis-ci.org/dscalzi/HeliosLauncher) [<img src="https://img.shields.io/github/downloads/dscalzi/HeliosLauncher/total.svg?style=for-the-badge" alt="downloads">](https://github.com/dscalzi/HeliosLauncher/releases) <img src="https://forthebadge.com/images/badges/winter-is-coming.svg"  height="28px" alt="stark"></p>
-
-<p align="center">Join modded servers without worrying about installing Java, Forge, or other mods. We'll handle that for you.</p>
+<p align="center">3歳でもマイクラに全自動でねこぞう参加型にアクセスすることができます</p>
 
 ![ScreenShot 1](https://user-images.githubusercontent.com/70869837/160034712-88e10415-bbe2-47a6-abe3-d6547fec75be.png)
 ![ScreenShot 2](https://user-images.githubusercontent.com/70869837/160034794-6c2c4566-3e22-4f0f-9c55-f2d0103f392e.png)
