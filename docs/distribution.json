@@ -62,7 +62,7 @@
                     "artifact": {
                         "size": 4611340,
                         "MD5": "134c4cf744d42ebafac330646b277fb4",
-                        "url": "https://raw.githubusercontent.com/TEAMNekozouneko/AoiLauncher/master/docs/packs/1.18.2/forge-1.18.2-40.0.25-installer.jar"
+                        "url": "https://github.com/TEAMNekozouneko/AoiLauncher/raw/master/docs/packs/1.12.2/forge-1.12.2-14.23.5.2859-installer.jar"
                     },
                     "subModules": []
                 }
