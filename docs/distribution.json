@@ -56,13 +56,13 @@
             },
             "modules": [
                 {
-                    "id": "net.minecraftforge:forge-1.12.2-14.23.5.2859:installer",
+                    "id": "net.minecraftforge:forge-1.12.2-14.23.5.2860:installer",
                     "name": "Minecraft Forge",
                     "type": "ForgeHosted",
                     "artifact": {
-                        "size": 4611340,
-                        "MD5": "134c4cf744d42ebafac330646b277fb4",
-                        "url": "https://raw.githubusercontent.com/TEAMNekozouneko/AoiLauncher/master/docs/packs/1.12.2/forge-1.12.2-14.23.5.2859-installer.jar"
+                        "size": 4611400,
+                        "MD5": "8f1bf573c40ba53838bb5080ce9cfe41",
+                        "url": "https://raw.githubusercontent.com/TEAMNekozouneko/AoiLauncher/master/docs/packs/1.12.2/forge-1.12.2-14.23.5.2860-installer.jar"
                     },
                     "subModules": []
                 }
