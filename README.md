@@ -8,8 +8,8 @@
 
 <p align="center">Join modded servers without worrying about installing Java, Forge, or other mods. We'll handle that for you.</p>
 
-![Screenshot 1](https://i.imgur.com/6o7SmH6.png)
-![Screenshot 2](https://i.imgur.com/x3B34n1.png)
+![ScreenShot 1](https://user-images.githubusercontent.com/70869837/160034712-88e10415-bbe2-47a6-abe3-d6547fec75be.png)
+![ScreenShot 2](https://user-images.githubusercontent.com/70869837/160034794-6c2c4566-3e22-4f0f-9c55-f2d0103f392e.png)
 
 ## 機能
 
@@ -36,26 +36,26 @@ This is not an exhaustive list. Download and install the launcher to gauge all i
 
 #### Like the project? Leave a ⭐ star on the repository!
 
-## Downloads
+## ダウンロード
 
-[GitHubのリリースページ](https://github.com/TEAMNekozouneko/AoiLauncher/releases)からダウンロードできます。
+GitHubの[リリースページ](https://github.com/TEAMNekozouneko/AoiLauncher/releases) からダウンロードできます。
 
 #### 最新リリース
 
-[![](https://img.shields.io/github/release/dscalzi/HeliosLauncher.svg?style=flat-square)](https://github.com/dscalzi/HeliosLauncher/releases/latest)
+[![](https://img.shields.io/github/release/TEAMNekozouneko/AoiLauncher.svg?style=flat-square)](https://github.com/dscalzi/HeliosLauncher/releases/latest)
 
 #### 最新プレリリース
-[![](https://img.shields.io/github/release/dscalzi/HeliosLauncher/all.svg?style=flat-square)](https://github.com/dscalzi/HeliosLauncher/releases)
+[![](https://img.shields.io/github/release/TEAMNekozouneko/AoiLauncher/all.svg?style=flat-square)](https://github.com/dscalzi/HeliosLauncher/releases)
 
 **サポートされたプラットフォーム**
 
-If you download from the [Releases](https://github.com/dscalzi/HeliosLauncher/releases) tab, select the installer for your system.
+ダウンロードはGitHubの[リリース](https://github.com/TEAMNekozouneko/AoiLauncher/releases) ページから出来ます。
 
-| Platform | File |
+| プラットフォーム| ファイル |
 | -------- | ---- |
-| Windows x64 | `Helios-Launcher-setup-VERSION.exe` |
-| macOS | `Helios-Launcher-setup-VERSION.dmg` |
-| Linux x64 | `Helios-Launcher-setup-VERSION.AppImage` |
+| Windows 64bit | `AoiLauncher-setup-<VERSION>.exe` |
+| macOS | `AoiLauncher-setup-<VERSION>.dmg` |
+| Linux 64bit | `AoiLauncher-setup-<VERSION>.AppImage` |
 
 ## コンソール
 
