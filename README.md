@@ -190,7 +190,7 @@ We reserve the right to update these conditions at any time, please check back p
 
 The best way to contact the developers is on Discord.
 
-[![discord](https://discordapp.com/api/guilds/211524927831015424/embed.png?style=banner3)][discord]
+[![discord](https://discordapp.com/api/guilds/896668963709255680/embed.png?style=banner3)][discord]
 
 ---
 
