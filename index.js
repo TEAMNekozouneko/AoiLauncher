@@ -262,7 +262,7 @@ ipcMain.on('openMSALoginWindow', (ipcEvent, args) => {
         return
     }
     MSALoginWindow = new BrowserWindow({
-        title: 'Microsoft Login',
+        title: 'Microsoft ログイン',
         backgroundColor: '#222222',
         width: 520,
         height: 600,
@@ -307,7 +307,7 @@ let MSALogoutWindow = null
 ipcMain.on('openMSALogoutWindow', (ipcEvent, args) => {
     if (MSALogoutWindow == null) {
         MSALogoutWindow = new BrowserWindow({
-            title: 'Microsoft Logout',
+            title: 'Microsoft ログアウト',
             backgroundColor: '#222222',
             width: 520,
             height: 600,
