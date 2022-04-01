@@ -540,12 +540,13 @@ let data = null
  * @returns {Promise.<DistroIndex>}
  */
 exports.pullRemote = function(distroURL){
+    const url = "https://raw.githubusercontent.com/TEAMNekozouneko/AoiModPacks/master/distribution.json"
     if(DEV_MODE){
         return exports.pullLocal()
     }
     return new Promise((resolve, reject) => {
         const opts = {
-            url: distroURL,
+            url: url,
             timeout: 2500
         }
         const distroDest = path.join(ConfigManager.getLauncherDirectory(), 'distribution.json')
