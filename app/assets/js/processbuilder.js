@@ -64,7 +64,12 @@ class ProcessBuilder {
         logger.log("Game dir", this.gameDir)
         logger.log("javajar", ConfigManager.getLaunchDetached())
 
-        const child = child_process.spawn(ConfigManager.getJavaExecutable(), args, {
+        // Javaバージョン
+        const javaVersion = Util.getJavaVersionFromMcVersion(this.server.getMinecraftVersion())
+        logger.log('Java Version: ', javaVersion)
+        logger.log('Java path: ', ConfigManager.getJavaExecutable(javaVersion))
+
+        const child = child_process.spawn(ConfigManager.getJavaExecutable(javaVersion), args, {
             cwd: this.gameDir,
             detached: ConfigManager.getLaunchDetached()
         })
@@ -97,6 +102,16 @@ class ProcessBuilder {
         })
 
         return child
+    }
+
+    /**
+     * Get the platform specific classpath separator. On windows, this is a semicolon.
+     * On Unix, this is a colon.
+     * 
+     * @returns {string} The classpath separator for the current operating system.
+     */
+    static getClasspathSeparator() {
+        return process.platform === 'win32' ? ';' : ':'
     }
 
     /**
@@ -342,7 +357,7 @@ class ProcessBuilder {
 
         // Classpath Argument
         args.push('-cp')
-        args.push(this.classpathArg(mods, tempNativePath).join(process.platform === 'win32' ? ';' : ':'))
+        args.push(this.classpathArg(mods, tempNativePath).join(ProcessBuilder.getClasspathSeparator()))
 
         args.push('-Dlog4j2.formatMsgNoLookups=true')
 
@@ -381,6 +396,19 @@ class ProcessBuilder {
 
         // JVM Arguments First
         let args = this.versionData.arguments.jvm
+
+        // Debug securejarhandler
+        // args.push('-Dbsl.debug=true')
+
+        if(this.forgeData.arguments.jvm != null) {
+            for(const argStr of this.forgeData.arguments.jvm) {
+                args.push(argStr
+                    .replaceAll('${library_directory}', this.libPath)
+                    .replaceAll('${classpath_separator}', ProcessBuilder.getClasspathSeparator())
+                    .replaceAll('${version_name}', this.forgeData.id)
+                )
+            }
+        }
 
         //args.push('-Dlog4j.configurationFile=D:\\WesterosCraft\\game\\common\\assets\\log_configs\\client-1.12.xml')
         args.push('-Dlog4j2.formatMsgNoLookups=true')
@@ -495,7 +523,7 @@ class ProcessBuilder {
                             val = args[i].replace(argDiscovery, this.launcherVersion)
                             break
                         case 'classpath':
-                            val = this.classpathArg(mods, tempNativePath).join(process.platform === 'win32' ? ';' : ':')
+                            val = this.classpathArg(mods, tempNativePath).join(ProcessBuilder.getClasspathSeparator())
                             break
                     }
                     if(val != null){
@@ -653,9 +681,13 @@ class ProcessBuilder {
     classpathArg(mods, tempNativePath){
         let cpArgs = []
 
-        // Add the version.jar to the classpath.
-        const version = this.versionData.id
-        cpArgs.push(path.join(this.commonDir, 'versions', version, version + '.jar'))
+        if(!Util.mcVersionAtLeast('1.17', this.server.getMinecraftVersion())) {
+            // Add the version.jar to the classpath.
+            // Must not be added to the classpath for Forge 1.17+.
+            const version = this.versionData.id
+            cpArgs.push(path.join(this.commonDir, 'versions', version, version + '.jar'))
+        }
+        
 
         if(this.usingLiteLoader){
             cpArgs.push(this.llPath)
@@ -801,6 +833,15 @@ class ProcessBuilder {
         let libs = []
         for(let sm of mdl.getSubModules()){
             if(sm.getType() === DistroManager.Types.Library){
+
+                // TODO Add as file or something.
+                const x = sm.getIdentifier()
+                console.log(x)
+                if(x.includes(':universal') || x.includes(':slim') || x.includes(':extra') || x.includes(':srg') || x.includes(':client')) {
+                    console.log('SKIPPING ' + x)
+                    continue
+                }
+
                 libs.push(sm.getArtifact().getPath())
             }
             // If this module has submodules, we need to resolve the libraries for those.

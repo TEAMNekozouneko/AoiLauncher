@@ -10,7 +10,7 @@ const dataPath = path.join(sysRoot, '.aoilauncher')
 console.log(`Appdata dir ${dataPath}`)
 
 // Forked processes do not have access to electron, so we have this workaround.
-const launcherDir = process.env.CONFIG_DIRECT_PATH || require('electron').remote.app.getPath('userData')
+const launcherDir = process.env.CONFIG_DIRECT_PATH || require('@electron/remote').app.getPath('userData')
 
 /**
  * Retrieve the absolute path of the launcher directory.
@@ -41,6 +41,8 @@ exports.setDataDirectory = function(dataDirectory){
 }
 
 const configPath = path.join(exports.getLauncherDirectory(), 'config.json')
+
+console.log(`ConfigPath: ${configPath}`)
 const configPathLEGACY = path.join(dataPath, 'config.json')
 const firstLaunch = !fs.existsSync(configPath) && !fs.existsSync(configPathLEGACY)
 
@@ -75,15 +77,18 @@ const DEFAULT_CONFIG = {
         java: {
             minRAM: resolveMinRAM(),
             maxRAM: resolveMaxRAM(), // Dynamic
-            executable: null,
+            executables: {
+                '8': null,
+                '17': null,
+            },
             jvmOptions: [
                 '-Xmn1G',
                 '-Dfile.encoding=utf-8'
             ],
         },
         game: {
-            resWidth: 1280,
-            resHeight: 720,
+            resWidth: 853,
+            resHeight: 480,
             fullscreen: false,
             autoConnect: true,
             launchDetached: true
@@ -564,8 +569,9 @@ exports.setMaxRAM = function(maxRAM){
  * 
  * @returns {string} The path of the Java Executable.
  */
-exports.getJavaExecutable = function(){
-    return config.settings.java.executable
+exports.getJavaExecutable = function(version){
+    console.log(config.settings.java.executables)
+    return config.settings.java.executables[version]
 }
 
 /**
@@ -573,8 +579,8 @@ exports.getJavaExecutable = function(){
  * 
  * @param {string} executable The new path of the Java Executable.
  */
-exports.setJavaExecutable = function(executable){
-    config.settings.java.executable = executable
+exports.setJavaExecutable = function(executable, version){
+    config.settings.java.executables[version] = executable
 }
 
 /**

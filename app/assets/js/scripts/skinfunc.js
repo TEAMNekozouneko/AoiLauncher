@@ -380,8 +380,7 @@ function getLauncherSkinPathOrigin() {
 
 // あおいランチャーとの同期設定JSON
 function getSkinSettingPath() {
-    const { remote: remoteElectron } = require('electron')
-    const app = remoteElectron.app
+    const app = require('@electron/remote').app
     const appPath = app.getPath('appData')
     const homePath = app.getPath('home')
     let SkinSettingPath

@@ -29,7 +29,6 @@ jobs:
             [Windows](https://github.com/${{ github.repository }}/releases/download/${{ steps.get_version.outputs.version }}/AoiLauncher-setup-${{ steps.get_version.outputs.version-without-v }}.exe)
             [Mac OS X](https://github.com/${{ github.repository }}/releases/download/${{ steps.get_version.outputs.version }}/AoiLauncher-setup-${{ steps.get_version.outputs.version-without-v }}.dmg)
             [Linux](https://github.com/${{ github.repository }}/releases/download/${{ steps.get_version.outputs.version }}/AoiLauncher-setup-${{ steps.get_version.outputs.version-without-v }}.AppImage)
-
             ### ビルド情報
             ${{ steps.get_version.outputs.version }} by ${{ github.actor }}
           draft: false
@@ -59,7 +58,7 @@ jobs:
       - name: Use Node.js 14.17.5
         uses: actions/setup-node@v1
         with:
-          node-version: '14.17.5'
+          node-version: 16
 
       ##Tag Number input
       - name: Get latest release version tag number

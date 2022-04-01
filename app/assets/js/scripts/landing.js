@@ -4,14 +4,15 @@
 // Requirements
 const cp                      = require('child_process')
 const crypto                  = require('crypto')
-const request                 = require('request')
-const {URL}                   = require('url')
+const { URL }                 = require('url')
+const { getServerStatus }     = require('helios-core')
 
 // Internal Requirements
 const DiscordWrapper          = require('./assets/js/discordwrapper')
 const Mojang                  = require('./assets/js/mojang')
 const ProcessBuilder          = require('./assets/js/processbuilder')
 const ServerStatus            = require('./assets/js/serverstatus')
+const { Util }                = require('./assets/js/assetguard')
 
 // Launch Elements
 const launch_content          = document.getElementById('launch_content')
@@ -89,7 +90,8 @@ function setLaunchEnabled(val){
 document.getElementById('launch_button').addEventListener('click', function(e){
     loggerLanding.log('Launching game..')
     const mcVersion = DistroManager.getDistribution().getServer(ConfigManager.getSelectedServer()).getMinecraftVersion()
-    const jExe = ConfigManager.getJavaExecutable()
+    const javaVersion = Util.getJavaVersionFromMcVersion(mcVersion)
+    const jExe = ConfigManager.getJavaExecutable(javaVersion)
     if(jExe == null){
         asyncSystemScan(mcVersion)
     } else {
@@ -102,7 +104,7 @@ document.getElementById('launch_button').addEventListener('click', function(e){
         jg._validateJavaBinary(jExe).then((v) => {
             loggerLanding.log('Java version meta', v)
             if(v.valid){
-                dlAsync()
+                dlAsync(javaVersion)
             } else {
                 asyncSystemScan(mcVersion)
             }
@@ -132,7 +134,7 @@ function updateSelectedAccount(authUser){
             username = authUser.displayName
         }
         if(authUser.uuid != null){
-            document.getElementById('avatarContainer').style.backgroundImage = `url('https://crafatar.com/renders/body/${authUser.uuid}?overlay')`
+            document.getElementById('avatarContainer').style.backgroundImage = `url('https://mc-heads.net/body/${authUser.uuid}/right')`
         }
     }
     user_text.innerHTML = username
@@ -174,11 +176,6 @@ const refreshMojangStatuses = async function(){
 
         for(let i=0; i<statuses.length; i++){
             const service = statuses[i]
-
-            // Mojang API is broken for sessionserver. https://bugs.mojang.com/browse/WEB-2303
-            if(service.service === 'sessionserver.mojang.com') {
-                service.status = 'green'
-            }
 
             if(service.essential){
                 tooltipEssentialHTML += `<div class="mojangStatusContainer">
@@ -232,11 +229,11 @@ const refreshServerStatus = async function(fade = false){
 
     try {
         const serverURL = new URL('my://' + serv.getAddress())
-        const servStat = await ServerStatus.getStatus(serverURL.hostname, serverURL.port)
-        if(servStat.online){
-            pLabel = 'プレイヤー'
-            pVal = servStat.onlinePlayers + '/' + servStat.maxPlayers
-        }
+
+        const servStat = await getServerStatus(47, serverURL.hostname, Number(serverURL.port))
+        console.log(servStat)
+        pLabel = 'プレイヤー'
+        pVal = servStat.players.online + '/' + servStat.players.max
 
     } catch (err) {
         loggerLanding.warn('Unable to refresh server status, assuming offline.')
@@ -321,6 +318,9 @@ function asyncSystemScan(mcVersion, launchAfter = true){
     sysAEx.stdio[2].on('data', (data) => {
         loggerSysAEx.log(data)
     })
+
+    // Javaバージョン
+    const javaVersion = Util.getJavaVersionFromMcVersion(mcVersion)
     
     sysAEx.on('message', (m) => {
 
@@ -336,8 +336,8 @@ function asyncSystemScan(mcVersion, launchAfter = true){
                 )
                 setOverlayHandler(() => {
                     setLaunchDetails('Javaダウンロードの準備中..')
-                    sysAEx.send({task: 'changeContext', class: 'AssetGuard', args: [ConfigManager.getCommonDirectory(),ConfigManager.getJavaExecutable()]})
-                    sysAEx.send({task: 'execute', function: '_enqueueOpenJDK', argsArr: [ConfigManager.getDataDirectory()]})
+                    sysAEx.send({task: 'changeContext', class: 'AssetGuard', args: [ConfigManager.getCommonDirectory(),ConfigManager.getJavaExecutable(javaVersion)]})
+                    sysAEx.send({task: 'execute', function: '_enqueueOpenJDK', argsArr: [ConfigManager.getDataDirectory(), javaVersion]})
                     toggleOverlay(false)
                 })
                 setDismissHandler(() => {
@@ -355,7 +355,7 @@ function asyncSystemScan(mcVersion, launchAfter = true){
                         })
                         setDismissHandler(() => {
                             toggleOverlay(false, true)
-                            asyncSystemScan()
+                            asyncSystemScan(mcVersion, launchAfter)
                         })
                         $('#overlayContent').fadeIn(250)
                     })
@@ -364,16 +364,16 @@ function asyncSystemScan(mcVersion, launchAfter = true){
 
             } else {
                 // Java installation found, use this to launch the game.
-                ConfigManager.setJavaExecutable(m.result)
+                ConfigManager.setJavaExecutable(m.result, javaVersion)
                 ConfigManager.save()
 
                 // We need to make sure that the updated value is on the settings UI.
                 // Just incase the settings UI is already open.
                 settingsJavaExecVal.value = m.result
-                populateJavaExecDetails(settingsJavaExecVal.value)
+                populateJavaExecDetails(settingsJavaExecVal.value, javaVersion)
 
                 if(launchAfter){
-                    dlAsync()
+                    dlAsync(javaVersion)
                 }
                 sysAEx.disconnect()
             }
@@ -438,7 +438,7 @@ function asyncSystemScan(mcVersion, launchAfter = true){
                     remote.getCurrentWindow().setProgressBar(-1)
 
                     // Extraction completed successfully.
-                    ConfigManager.setJavaExecutable(m.args[0])
+                    ConfigManager.setJavaExecutable(m.args[0], javaVersion)
                     ConfigManager.save()
 
                     if(extractListener != null){
@@ -449,7 +449,7 @@ function asyncSystemScan(mcVersion, launchAfter = true){
                     setLaunchDetails('Javaのインストール完了!')
 
                     if(launchAfter){
-                        dlAsync()
+                        dlAsync(javaVersion)
                     }
 
                     sysAEx.disconnect()
@@ -463,7 +463,7 @@ function asyncSystemScan(mcVersion, launchAfter = true){
 
     // Begin system Java scan.
     setLaunchDetails('システムをスキャン中..')
-    sysAEx.send({task: 'execute', function: 'validateJava', argsArr: [ConfigManager.getDataDirectory()]})
+    sysAEx.send({task: 'execute', function: 'validateJava', argsArr: [ConfigManager.getDataDirectory(), javaVersion]})
 
 }
 
@@ -484,7 +484,7 @@ let forgeData
 
 let progressListener
 
-async function dlAsync(login = true){
+async function dlAsync(version, login = true){
 
     // Login parameter is temporary for debug purposes. Allows testing the validation/downloads without
     // launching the game.
@@ -517,7 +517,7 @@ async function dlAsync(login = true){
     aEx = cp.fork(path.join(__dirname, 'assets', 'js', 'assetexec.js'), [
         'AssetGuard',
         ConfigManager.getCommonDirectory(),
-        ConfigManager.getJavaExecutable()
+        ConfigManager.getJavaExecutable(version)
     ], {
         env: forkEnv,
         stdio: 'pipe'
