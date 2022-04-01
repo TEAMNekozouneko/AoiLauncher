@@ -55,7 +55,7 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Use Node.js 14.17.5
+      - name: Use Node.js 16
         uses: actions/setup-node@v1
         with:
           node-version: 16
