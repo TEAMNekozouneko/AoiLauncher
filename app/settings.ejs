@@ -198,7 +198,7 @@
             <div class="settingsFileSelContainer">
                 <div class="settingsFileSelTitle">実行可能なJavaファイル (1.16以前)</div>
                 <div class="settingsFileSelContent">
-                    <div id="settingsJavaExecDetails">Selected: Java 8 Update 172 (x64)</div>
+                    <div id="settingsJavaExecDetails">未選択</div>
                     <div class="settingsFileSelActions">
                         <div class="settingsFileSelIcon">
                             <svg class="settingsFileSelSVG" x="0px" y="0px" viewBox="0 0 305.001 305.001">
@@ -215,7 +215,7 @@
                             </svg>
                         </div>
                         <input class="settingsFileSelVal" id="settingsJavaExecVal" type="text" value="null" cValue="JavaExecutable" disabled>
-                        <button class="settingsFileSelButton" id="settingsJavaExecSel" dialogTitle="Select Java Executable" dialogDirectory="false">Choose File</button>
+                        <button class="settingsFileSelButton" id="settingsJavaExecSel" dialogTitle="実行可能なJavaファイルを選択してください" dialogDirectory="false">選択</button>
                     </div>
                 </div>
                 <div class="settingsFileSelDesc">実行可能なJavaファイルかをゲーム実行前に検証されます。 <strong>64ビット版Java 8が必要です。</strong><br>パスは <strong>bin<%= process.platform === 'win32' ? '\\javaw.exe' : '/java' %></strong> で終わっているはずです。</div>
@@ -223,7 +223,7 @@
             <div class="settingsFileSelContainer">
                 <div class="settingsFileSelTitle">実行可能なJavaファイル (1.17以降)</div>
                 <div class="settingsFileSelContent">
-                    <div id="settingsJavaExecDetails17">Selected: Java 17.0.1 (x64)</div>
+                    <div id="settingsJavaExecDetails17">未選択</div>
                     <div class="settingsFileSelActions">
                         <div class="settingsFileSelIcon">
                             <svg class="settingsFileSelSVG" x="0px" y="0px" viewBox="0 0 305.001 305.001">
@@ -240,7 +240,7 @@
                             </svg>
                         </div>
                         <input class="settingsFileSelVal" id="settingsJavaExecVal17" type="text" value="null" cValue="JavaExecutable17" disabled>
-                        <button class="settingsFileSelButton" id="settingsJavaExecSel17" dialogTitle="Select Java Executable" dialogDirectory="false">Choose File</button>
+                        <button class="settingsFileSelButton" id="settingsJavaExecSel17" dialogTitle="実行可能なJavaファイルを選択してください" dialogDirectory="false">選択</button>
                     </div>
                 </div>
                 <div class="settingsFileSelDesc">実行可能なJavaファイルかをゲーム実行前に検証されます。 <strong>64ビット版Java 17が必要です。</strong><br>パスは <strong>bin<%= process.platform === 'win32' ? '\\javaw.exe' : '/java' %></strong> で終わっているはずです。</div>
