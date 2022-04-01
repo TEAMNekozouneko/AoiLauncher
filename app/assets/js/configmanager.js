@@ -40,6 +40,8 @@ exports.setDataDirectory = function(dataDirectory){
 }
 
 const configPath = path.join(exports.getLauncherDirectory(), 'config.json')
+
+console.log(`ConfigPath: ${configPath}`)
 const configPathLEGACY = path.join(dataPath, 'config.json')
 const firstLaunch = !fs.existsSync(configPath) && !fs.existsSync(configPathLEGACY)
 
@@ -84,8 +86,8 @@ const DEFAULT_CONFIG = {
             ],
         },
         game: {
-            resWidth: 1280,
-            resHeight: 720,
+            resWidth: 853,
+            resHeight: 480,
             fullscreen: false,
             autoConnect: true,
             launchDetached: true
