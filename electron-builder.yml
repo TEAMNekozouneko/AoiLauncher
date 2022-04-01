@@ -1,5 +1,5 @@
-appId: 'numalauncher'
-productName: 'NumaLauncher'
+appId: 'aoilauncher'
+productName: 'AoiLauncher'
 artifactName: '${productName}-setup-${version}.${ext}'
 
 copyright: 'Copyright © 2018-2021 Daniel Scalzi, 2020-2022 Kamesuta'
