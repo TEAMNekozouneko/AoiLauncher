@@ -99,7 +99,7 @@ ipcMain.on('distributionIndexDone', (event, res) => {
     // ダウンロードID管理
     let downloadIndex = 0
     // ダウンロードフォルダ
-    const downloadDirectory = path.join(app.getPath('temp'), 'NumaLauncher', 'ManualDownloads')
+    const downloadDirectory = path.join(app.getPath('temp'), 'AoiLauncher', 'ManualDownloads')
     // IDでウィンドウを閉じる
     ipcMain.on('closeManualWindow', (ipcEvent, index) => {
         // IDを探してウィンドウを閉じる
@@ -265,7 +265,7 @@ ipcMain.on('openMSALoginWindow', (ipcEvent, args) => {
         return
     }
     MSALoginWindow = new BrowserWindow({
-        title: 'Microsoft Login',
+        title: 'Microsoft ログイン',
         backgroundColor: '#222222',
         width: 520,
         height: 600,
@@ -310,7 +310,7 @@ let MSALogoutWindow = null
 ipcMain.on('openMSALogoutWindow', (ipcEvent, args) => {
     if (MSALogoutWindow == null) {
         MSALogoutWindow = new BrowserWindow({
-            title: 'Microsoft Logout',
+            title: 'Microsoft ログアウト',
             backgroundColor: '#222222',
             width: 520,
             height: 600,

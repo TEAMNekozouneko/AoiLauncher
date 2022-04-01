@@ -540,7 +540,7 @@ let data = null
  * @returns {Promise.<DistroIndex>}
  */
 exports.pullRemote = function(distroURL){
-    const url = "https://raw.githubusercontent.com/TEAMNekozouneko/AoiModPacks/master/distribution.json"
+    distroURL = "https://raw.githubusercontent.com/TEAMNekozouneko/AoiModPacks/master/distribution.json";
     if(DEV_MODE){
         return exports.pullLocal()
     }

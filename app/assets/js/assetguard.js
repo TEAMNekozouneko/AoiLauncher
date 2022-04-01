@@ -251,7 +251,6 @@ class JavaGuard extends EventEmitter {
      * @returns {Promise.<OpenJDKData>} Promise which resolved to an object containing the JRE download data.
      */
     static _latestOpenJDK(major = '8'){
-
         if(process.platform === 'darwin') {
             return this._latestCorretto(major)
         } else {
@@ -968,6 +967,7 @@ class AssetGuard extends EventEmitter {
      * to finalize installation.
      */
     constructor(commonPath, javaexec){
+        console.log(`CommonPath: ${commonPath}`)
         super()
         this.totaldlsize = 0
         this.progress = 0

@@ -224,8 +224,8 @@ const refreshServerStatus = async function(fade = false){
     loggerLanding.log('Refreshing Server Status')
     const serv = DistroManager.getDistribution().getServer(ConfigManager.getSelectedServer())
 
-    let pLabel = 'SERVER'
-    let pVal = 'OFFLINE'
+    let pLabel = 'サーバー'
+    let pVal = 'オフライン'
 
     try {
         const serverURL = new URL('my://' + serv.getAddress())
@@ -711,7 +711,7 @@ async function dlAsync(version, login = true){
                 const gameStateChange = function(data){
                     data = data.trim()
                     if(SERVER_JOINED_REGEX.test(data)){
-                        DiscordWrapper.updateDetails('50人クラフトに参加中!')
+                        DiscordWrapper.updateDetails('あるサーバーに参加中!')
                     } else if(GAME_JOINED_REGEX.test(data)){
                         DiscordWrapper.updateDetails('マインクラフトをプレイ中!')
                     }
@@ -772,7 +772,7 @@ async function dlAsync(version, login = true){
                     // 一定時間経ったらLoading表示を解除
                     setTimeout(() => { toggleLaunchArea(false) }, 10000)
 
-                    setLaunchDetails('準備OK。参加勢集合！')
+                    setLaunchDetails('読み込み完了！さぁ遊ぼう！')
 
                     // Init Discord Hook
                     const distro = DistroManager.getDistribution()

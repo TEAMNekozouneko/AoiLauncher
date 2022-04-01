@@ -49,7 +49,7 @@ if(!isDev){
                 loggerAutoUpdaterSuccess.log('New update available', info.version)
                 
                 if(process.platform === 'darwin'){
-                    info.darwindownload = `https://github.com/TeamKun/NumaLauncher/releases/download/v${info.version}/numalauncher-setup-${info.version}${process.arch === 'arm64' ? '-arm64' : ''}.dmg`
+                    info.darwindownload = `https://github.com/TEAMNekozouneko/AoiLauncher/releases/download/v${info.version}/aoilauncher-setup-${info.version}.dmg`
                     showUpdateUI(info)
                 }
                 

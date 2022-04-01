@@ -370,7 +370,7 @@ function bindAuthAccountLogOut() {
                 isLastAccount = true
                 setOverlayContent(
                     '注意<br>これはログインしている最後のアカウントです',
-                    '沼ランチャーを使うためには、最低1個のアカウントにログインしている必要があります。<br>ログアウトしたら、もう一度ログインしないといけなくなります。<br><br>本当にログアウトする？',
+                    'あおいランチャーを使うためには、最低1個のアカウントにログインしている必要があります。<br>ログアウトしたら、もう一度ログインしないといけなくなります。<br><br>本当にログアウトする？',
                     '分かってるよそんなこと',
                     'やっぱやめとく'
                 )
@@ -1263,7 +1263,7 @@ function populateAboutVersionInformation() {
  */
 function populateReleaseNotes() {
     $.ajax({
-        url: 'https://github.com/TeamKun/NumaLauncher/releases.atom',
+        url: 'https://github.com/TEAMNekozouneko/AoiLauncher/releases.atom',
         success: (data) => {
             const version = 'v' + remote.app.getVersion()
             const entries = $(data).find('entry')

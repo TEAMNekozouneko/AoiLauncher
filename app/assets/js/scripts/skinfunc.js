@@ -325,7 +325,7 @@ function initEditSkinPreview() {
 JSONファイルの読み込み・書き出し
 ----------------------*/
 
-// 沼ランチャーのスキンデータパスを取得する
+// あおいランチャーのスキンデータパスを取得する
 function getLauncherSkinPath() {
     const { remote: remoteElectron } = require('electron')
     const app = remoteElectron.app
@@ -378,7 +378,7 @@ function getLauncherSkinPathOrigin() {
     return defaultOriginPath
 }
 
-// 沼ランチャーとの同期設定JSON
+// あおいランチャーとの同期設定JSON
 function getSkinSettingPath() {
     const app = require('@electron/remote').app
     const appPath = app.getPath('appData')
@@ -409,7 +409,7 @@ function getSkinSettingPath() {
 //     return fs.existsSync(defaultOriginPath);
 // }
 
-// 沼ランチャー内のスキンのJSONを呼び出し・オブジェクトに変更
+// あおいランチャー内のスキンのJSONを呼び出し・オブジェクトに変更
 function loadSkins() {
     const skinJSON = path.join(getLauncherSkinPath())
     try {
@@ -594,7 +594,7 @@ function saveSettingSkin(settingJSONObject) {
     fs.writeFileSync(skinSettingPath, json)
 }
 
-// 初回時、公式スキンを沼ランチャーにインポートする
+// 初回時、公式スキンをあおいランチャーにインポートする
 function importOriginalSkinJSON() {
     const src = path.join(getLauncherSkinPathOrigin())
     const dest = path.join(getLauncherSkinPath())
@@ -614,7 +614,7 @@ function importOriginalSkinJSON() {
     }
 }
 
-// 初回時、自分で設定したパスでを沼ランチャーにインポートする
+// 初回時、自分で設定したパスでをあおいランチャーにインポートする
 // async function importMySettingOriginalSkinJSON(){
 //     const settingJSONObject = loadSettingSkin();
 //     const src = settingJSONObject['settings']['myOriginSkinPath']
@@ -690,7 +690,7 @@ function checkSyncSkinJSON() {
     return syncSetting
 }
 
-// 公式と沼ランチャーJSONのmerge（同期trueの時のみ動かす）
+// 公式とあおいランチャーJSONのmerge（同期trueの時のみ動かす）
 async function mergeNumaSkinJSON() {
     const syncSetting = checkSyncSkinJSON()
     if (syncSetting) {
