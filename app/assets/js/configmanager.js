@@ -567,6 +567,7 @@ exports.setMaxRAM = function(maxRAM){
  * @returns {string} The path of the Java Executable.
  */
 exports.getJavaExecutable = function(version){
+    console.log(config.settings.java.executables)
     return config.settings.java.executables[version]
 }
 
@@ -575,7 +576,7 @@ exports.getJavaExecutable = function(version){
  * 
  * @param {string} executable The new path of the Java Executable.
  */
-exports.setJavaExecutable = function(version, executable){
+exports.setJavaExecutable = function(executable, version){
     config.settings.java.executables[version] = executable
 }
 
