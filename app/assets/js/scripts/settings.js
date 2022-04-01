@@ -989,6 +989,9 @@ settingsMinRAMRange.setAttribute('max', SETTINGS_MAX_MEMORY)
 settingsMinRAMRange.setAttribute('min', SETTINGS_MIN_MEMORY)
 settingsOptionStandardize.checked = ConfigManager.getoptionStandardize()
 
+document.getElementById('settingsJavaExecVal').value = ConfigManager.getJavaExecutable(8)
+document.getElementById('settingsJavaExecVal17').value = ConfigManager.getJavaExecutable(17)
+
 // Bind on change event for min memory container.
 settingsMinRAMRange.onchange = (e) => {
 
@@ -1174,6 +1177,8 @@ function populateMemoryStatus() {
  * @param {string} execPath The executable path to populate against.
  */
 function populateJavaExecDetails(execPath, version) {
+    ConfigManager.setJavaExecutable(execPath, version)
+    ConfigManager.save()
     const jg = new JavaGuard(DistroManager.getDistribution().getServer(ConfigManager.getSelectedServer()).getMinecraftVersion())
     jg._validateJavaBinary(execPath).then(v => {
         if (v.valid) {
