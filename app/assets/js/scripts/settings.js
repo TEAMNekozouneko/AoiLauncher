@@ -1179,9 +1179,9 @@ function populateJavaExecDetails(execPath, version) {
         if (v.valid) {
             const vendor = v.vendor != null ? ` (${v.vendor})` : ''
             if (v.version.major < 9) {
-                settingsJavaExecDetails[version].innerHTML = `Selected: Java ${v.version.major} Update ${v.version.update} (x${v.arch})${vendor}`
+                settingsJavaExecDetails[version].innerHTML = `Java ${v.version.major} v${v.version.update} (${v.arch}bit)${vendor}を選択中`
             } else {
-                settingsJavaExecDetails[version].innerHTML = `Selected: Java ${v.version.major}.${v.version.minor}.${v.version.revision} (x${v.arch})${vendor}`
+                settingsJavaExecDetails[version].innerHTML = `Java ${v.version.major}.${v.version.minor}.${v.version.revision} (${v.arch}bit)${vendor}を選択中`
             }
         } else {
             settingsJavaExecDetails[version].innerHTML = '無効なJava'
