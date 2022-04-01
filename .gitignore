@@ -5,3 +5,5 @@
 /logs/
 /dist/
 .idea/*
+
+*.py
