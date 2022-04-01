@@ -63,6 +63,8 @@ class ProcessBuilder {
 
         // Javaバージョン
         const javaVersion = Util.getJavaVersionFromMcVersion(this.server.getMinecraftVersion())
+        logger.log('Java Version: ', javaVersion)
+        logger.log('Java path: ', ConfigManager.getJavaExecutable(javaVersion))
 
         const child = child_process.spawn(ConfigManager.getJavaExecutable(javaVersion), args, {
             cwd: this.gameDir,
