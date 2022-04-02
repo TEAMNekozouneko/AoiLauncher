@@ -327,20 +327,20 @@ JSONファイルの読み込み・書き出し
 
 // あおいランチャーのスキンデータパスを取得する
 function getLauncherSkinPath() {
-    const { remote: remoteElectron } = require('electron')
+    const remoteElectron = require('@electron/remote')
     const app = remoteElectron.app
     const appPath = app.getPath('appData')
     const homePath = app.getPath('home')
     let numaPath
     switch (process.platform) {
         case 'win32':
-            numaPath = `${appPath}\\.minecraft\\numa_skins.json`
+            numaPath = `${appPath}\\.minecraft\\aoi_skins.json`
             break
         case 'darwin':
-            numaPath = `${appPath}/minecraft/numa_skins.json`
+            numaPath = `${appPath}/minecraft/aoi_skins.json`
             break
         case 'linux':
-            numaPath = `${homePath}/.minecraft/numa_skins.json`
+            numaPath = `${homePath}/.minecraft/aoi_skins.json`
             break
         default:
             console.error('Cannot resolve current platform!')
@@ -354,7 +354,7 @@ function getLauncherSkinPath() {
 
 // 公式ランチャー内のスキンデータパスを取得する
 function getLauncherSkinPathOrigin() {
-    const { remote: remoteElectron } = require('electron')
+    const remoteElectron = require('@electron/remote')
     const app = remoteElectron.app
     const appPath = app.getPath('appData')
     const homePath = app.getPath('home')
