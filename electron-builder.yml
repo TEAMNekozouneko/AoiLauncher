@@ -2,7 +2,7 @@ appId: 'aoilauncher'
 productName: 'AoiLauncher'
 artifactName: '${productName}-setup-${version}.${ext}'
 
-copyright: 'Copyright © 2018-2021 Daniel Scalzi, 2020-2022 Kamesuta'
+copyright: 'Copyright © 2018-2021 Daniel Scalzi, 2020-2022 Kamesuta, 2022 Taitaitatata, RunqJP'
 
 asar: true
 compression: 'maximum'
@@ -39,10 +39,10 @@ mac:
 # Linux Configuration
 linux: 
   target: 'AppImage'
-  maintainer: 'Daniel Scalzi, Kamesuta'
-  vendor: 'Daniel Scalzi, Kamesuta'
-  synopsis: '沼でも使えるMinecraftランチャー'
-  description: '参加型に参加するためのすべてがここに。Mod、コンフィグ、アップデートが全自動で揃います。'
+  maintainer: 'Daniel Scalzi, Kamesuta, Taitaitatata, RunqJP'
+  vendor: 'Daniel Scalzi, Kamesuta, Taitaitatata, RunqJP'
+  synopsis: '3歳でも使えるMinecraftランチャー'
+  description: '3歳でもマイクラに全自動でねこぞう参加型にアクセスすることができます'
   category: 'Game'
 
 
