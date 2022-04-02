@@ -1,36 +1,37 @@
+[オリジナル (HeliosLauncher)](github.com/dscalzi/HeliosLauncher) [フォーク元 (沼ランチャー)](https://github.com/TeamKun/NumaLauncher)
+
 <p align="center"><img src="./app/assets/images/SealCircle.svg" width="150px" height="150px" alt="aventium softworks"></p>
 
 <h1 align="center">Aoi Launcher</h1>
 
 <p align="center">3歳でもマイクラに全自動でねこぞう参加型にアクセスすることができます</p>
 
-![ScreenShot 1](https://user-images.githubusercontent.com/70869837/160034712-88e10415-bbe2-47a6-abe3-d6547fec75be.png)
-![ScreenShot 2](https://user-images.githubusercontent.com/70869837/160034794-6c2c4566-3e22-4f0f-9c55-f2d0103f392e.png)
+![Screenshot 1](https://user-images.githubusercontent.com/70869837/161360213-06a58f9b-0eb5-42a0-b7a5-14b252c2bdbc.png)
+![Screenshot 2](https://user-images.githubusercontent.com/70869837/161360193-1dc65592-b9ac-4136-979e-116a828e97d6.png)
 
 ## 機能
 
 * 🔒 アカウント管理機能
-  * 複数のマイクラアカウントを追加できます。
-  * Credentials are never stored and transmitted directly to Mojang.
-* 📂 Efficient asset management.
-  * Receive client updates as soon as we release them.
-  * Files are validated before launch. Corrupt or incorrect files will be redownloaded.
-* ☕ **Automatic Java validation.**
-  * If you have an incompatible version of Java installed, we'll install the right one *for you*.
-  * You do not need to have Java installed to run the launcher.
-* 📰 News feed natively built into the launcher.
-* ⚙️ Intuitive settings management, including a Java control panel.
-* Supports all of our servers.
-  * Switch between server configurations with ease.
-  * View the player count of the selected server.
-* Automatic updates. That's right, the launcher updates itself.
-*  View the status of Mojang's services.
+  * 複数のマイクラフトアカウントを追加できます。
+  * 暗号化通信によってMicrosoftに直接送信されトークン漏れの心配はありません。
+* 📂 自動的に起動に必要なファイルの自動管理
+  * マインクラフトのクライアント更新を受け取った場合すぐにダウンロードします。
+  * ファイルは起動前に検証され、破損または正しくないファイルが検出した場合再ダウンロードされます。
+* ☕ **Javaの自動検証**
+  * そのJavaが互換性のない場合、適切なバージョンが自動的にインストールされます。
+  * ランチャーがJavaを自動インストールするのでわざわざインストール必要がありません。(1.17.x（Java 17）以降除く)
+* 🎭 スキンをランチャー内だけで変更可能です。
+* ⚙️ 簡単な設定で管理ができます。
+* たぶん全部のサーバーをサポートしてます。
+  * すぐにパックを簡単に切り替えることができます。
+  * 選択したサーバーの参加人数がすぐに見られます
+* ランチャーは自動更新され安全な状態へ更新されます。(ただし確認が必要な場合があります。)
 
-This is not an exhaustive list. Download and install the launcher to gauge all it can do!
+これだけじゃないよ!ランチャーをダウンロードしてみて探してみよう!
 
-#### Need Help? [Check the wiki.][wiki]
+#### ヘルプが必要ですか? [Wikiをご確認ください!][wiki]
 
-#### Like the project? Leave a ⭐ star on the repository!
+#### このプロジェクトがすごいと思ったら⭐をこのレポジトリにつけてください!
 
 ## ダウンロード
 
@@ -47,21 +48,22 @@ GitHubの[リリースページ](https://github.com/TEAMNekozouneko/AoiLauncher/
 
 ダウンロードはGitHubの[リリース](https://github.com/TEAMNekozouneko/AoiLauncher/releases) ページから出来ます。
 
-| プラットフォーム| ファイル |
-| -------- | ---- |
-| Windows 64bit | `AoiLauncher-setup-<VERSION>.exe` |
-| macOS | `AoiLauncher-setup-<VERSION>.dmg` |
-| Linux 64bit | `AoiLauncher-setup-<VERSION>.AppImage` |
+| プラットフォーム| ファイル                                  |
+| ------------- | --------------------------------------- |
+| Windows 64bit | `AoiLauncher-setup-<VERSION>.exe`       |
+| macOS 64bit   | `AoiLauncher-setup-<VERSION>-x64.dmg`   |
+| macOS ARM64   | `AoiLauncher-setup-<VERSION>-arm64.dmg` |
+| Linux 64bit   | `AoiLauncher-setup-<VERSION>.AppImage`  |
 
 ## コンソール
 
-To open the console, use the following keybind.
+下のキーを同時押しすることでコンソールを開くことができます
 
 ```console
 Ctrl + Shift + I
 ```
 
-Ensure that you have the console tab selected. Do not paste anything into the console unless you are 100% sure of what it will do. Pasting the wrong thing can expose sensitive information.
+コンソールタブを開いてることを確認した上で使用してください。また必要以下の技術がない人は使用しないことをおすすめします。トークンなどが流出する危険性があります。
 
 #### Export Output to a File
 
@@ -74,23 +76,23 @@ If you want to export the console output, simply right click anywhere on the con
 
 ### Getting Started
 
-**System Requirements**
+**必要な環境**
 
-* [Node.js][nodejs] v12
+* [Node.js][nodejs] v16.x.x
 
 ---
 
-**Clone and Install Dependencies**
+**クローンと依存関係のインストール**
 
 ```console
-> git clone https://github.com/dscalzi/HeliosLauncher.git
-> cd HeliosLauncher
+> git clone https://github.com/TEAMNekozouneko/AoiLauncher.git
+> cd AoiLauncher
 > npm install
 ```
 
 ---
 
-**Launch Application**
+**起動する**
 
 ```console
 > npm start
@@ -98,23 +100,23 @@ If you want to export the console output, simply right click anywhere on the con
 
 ---
 
-**Build Installers**
+**インストーラーをビルド**
 
-To build for your current platform.
+現在の環境を自動検出しビルドします。
 
 ```console
 > npm run dist
 ```
 
-Build for a specific platform.
+環境を指定してビルドが可能です
 
-| Platform    | Command              |
-| ----------- | -------------------- |
-| Windows x64 | `npm run dist:win`   |
-| macOS       | `npm run dist:mac`   |
-| Linux x64   | `npm run dist:linux` |
+| 環境               | コマンド              |
+| ----------------- | -------------------- |
+| Windows 64bit     | `npm run dist:win`   |
+| macOS 64bit/arm64 | `npm run dist:mac`   |
+| Linux 64bit       | `npm run dist:linux` |
 
-Builds for macOS may not work on Windows/Linux and vice-versa.
+MacOSのビルドはWindows/Linuxではできません、逆も同様できません。
 
 ---
 
