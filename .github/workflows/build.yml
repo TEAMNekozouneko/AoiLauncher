@@ -27,7 +27,8 @@ jobs:
           body: |
             ### ▼ご使用のOSのインストーラーをダウンロードしてください。
             [Windows](https://github.com/${{ github.repository }}/releases/download/${{ steps.get_version.outputs.version }}/AoiLauncher-setup-${{ steps.get_version.outputs.version-without-v }}.exe)
-            [Mac OS X](https://github.com/${{ github.repository }}/releases/download/${{ steps.get_version.outputs.version }}/AoiLauncher-setup-${{ steps.get_version.outputs.version-without-v }}.dmg)
+            [Mac OS X (64bit)](https://github.com/${{ github.repository }}/releases/download/${{ steps.get_version.outputs.version }}/AoiLauncher-setup-${{ steps.get_version.outputs.version-without-v }}-x64.dmg)
+            [Mac OS X (ARM64/M1 CPU)](https://github.com/${{ github.repository }}/releases/download/${{ steps.get_version.outputs.version }}/AoiLauncher-setup-${{ steps.get_version.outputs.version-without-v }}-arm64.dmg)
             [Linux](https://github.com/${{ github.repository }}/releases/download/${{ steps.get_version.outputs.version }}/AoiLauncher-setup-${{ steps.get_version.outputs.version-without-v }}.AppImage)
             ### ビルド情報
             ${{ steps.get_version.outputs.version }} by ${{ github.actor }}
