@@ -29,7 +29,6 @@
     "axios": "^0.21.1",
     "buffer-fill": "^1.0.0",
     "discord-rpc-patch": "^4.0.1",
-    "dmg-license": "^1.0.11",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.6",
     "ejs-electron": "^2.1.1",
