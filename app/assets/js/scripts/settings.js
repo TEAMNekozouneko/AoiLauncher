@@ -76,6 +76,14 @@ function bindFileSelectors() {
             }
         }
     }
+    for (let ele of document.getElementsByClassName('settingsReleaseSelButton')) {
+
+        ele.onclick = async e => {
+            const distURL = document.getElementsByClassName('settingsReleaseSelVal').value
+
+            ConfigManager.setDefaultRelease(distURL);
+        }
+    }
 }
 
 bindFileSelectors()
@@ -141,6 +149,8 @@ function initSettingsValues() {
                         populateJavaExecDetails(v.value, '17')
                         v.value = gFn('17')
                     } else if (cVal === 'DataDirectory') {
+                        v.value = gFn()
+                    } else if (cVal === 'DefaultRelease') {
                         v.value = gFn()
                     } else if (cVal === 'JVMOptions') {
                         v.value = gFn().join(' ')
