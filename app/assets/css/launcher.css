@@ -1272,8 +1272,22 @@ input:checked + .toggleSwitchSlider:before {
     fill: white;
 }
 
+.settingsFileSelSVG2 {
+    width: 15px;
+    height: 15px;
+    fill: white;
+}
+
 /* Disabled text field which stores the selected file path. */
 .settingsFileSelVal {
+    border-radius: 0px !important;
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 12px;
+    height: 30px;
+}
+
+.settingsReleaseSelVal {
     border-radius: 0px !important;
     width: 100%;
     padding: 5px 10px;
@@ -1298,6 +1312,27 @@ input:checked + .toggleSwitchSlider:before {
     text-shadow: 0px 0px 20px white;
 }
 .settingsFileSelButton:active {
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* File selection button. */
+.settingsReleaseSelButton {
+    border: 0px;
+    border-radius: 0px 3px 3px 0px;
+    font-size: 12px;
+    padding: 0px 5px;
+    cursor: pointer;
+    background: rgba(126, 126, 126, 0.57);
+    transition: 0.25s ease;
+    white-space: nowrap;
+    outline: none;
+}
+.settingsReleaseSelButton:hover,
+.settingsReleaseSelButton:focus {
+    text-shadow: 0px 0px 20px white;
+}
+.settingsReleaseSelButton:active {
     text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.75);
     color: rgba(255, 255, 255, 0.75);
 }
@@ -3830,6 +3865,14 @@ form[name='submitSecretQuestion'] p {
     height: 12px;
     width: 25px;
 }
+
+.mediaSVG2 {
+    fill: #ffffff;
+    height: 20px;
+    transition: 0.25s ease;
+    width: 25px;
+}
+
 .mediaSVG:hover,
 .mediaURL:focus .mediaSVG,
 .mediaSVG:active {
@@ -3967,7 +4010,7 @@ form[name='submitSecretQuestion'] p {
 /* Maintains maximum width on the status bar. */
 #server_status_wrapper {
     display: inline-flex;
-    width: 100px;
+    width: auto;
 }
 
 /* Span which displays the player count of the selected server. */
