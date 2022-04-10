@@ -30,7 +30,7 @@ DistroManager.onDistroLoad = DistroManager.onCustomDistroLoad = function(data){
 }
 
 // Ensure Distribution is downloaded and cached.
-DistroManager.distroURL = 'https://raw.githubusercontent.com/TEAMNekozouneko/AoiModPacks/master/distribution.json'
+DistroManager.distroURL = ConfigManager.getDefaultRelease()
 //DistroManager.distroURL = 'http://mc.westeroscraft.com/WesterosCraftLauncher/distribution.json'
 //DistroManager.distroURL = 'https://gist.githubusercontent.com/dscalzi/53b1ba7a11d26a5c353f9d5ae484b71b/raw/'
 DistroManager.pullRemote(DistroManager.distroURL).then((data) => {
