@@ -96,7 +96,8 @@ const DEFAULT_CONFIG = {
         launcher: {
             allowPrerelease: false,
             optionStandardize: true,
-            dataDirectory: dataPath
+            dataDirectory: dataPath,
+            defaultRelease: 'https://raw.githubusercontent.com/TEAMNekozouneko/AoiModPacks/master/distribution.json'
         }
     },
     newsCache: {
@@ -745,6 +746,25 @@ exports.getAllowPrerelease = function(def = false){
  */
 exports.setAllowPrerelease = function(allowPrerelease){
     config.settings.launcher.allowPrerelease = allowPrerelease
+}
+
+/**
+ * Check if the launcher should download prerelease versions.
+ * 
+ * @param {boolean} def Optional. If true, the default value will be returned.
+ * @returns {boolean} Whether or not the launcher should download prerelease versions.
+ */
+ exports.getDefaultRelease = function(def = false){
+    return !def ? config.settings.launcher.defaultRelease : DEFAULT_CONFIG.settings.launcher.defaultRelease
+}
+
+/**
+ * Change the status of Whether or not the launcher should download prerelease versions.
+ * 
+ * @param {boolean} launchDetached Whether or not the launcher should download prerelease versions.
+ */
+exports.setDefaultRelease = function(defaultRelease){
+    config.settings.launcher.defaultRelease = defaultRelease
 }
 
 exports.getoptionStandardize = function(def = false){
