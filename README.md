@@ -2,7 +2,7 @@
 
 <p align="center"><img src="./app/assets/images/SealCircle.svg" width="150px" height="150px" alt="aventium softworks"></p>
 
-<h1 align="center">Aoi Launcher</h1>
+<h1 align="center">Aoi Launcher (Helios Launcher)</h1>
 
 <p align="center">3歳でもマイクラに全自動でねこぞう参加型にアクセスすることができます</p>
 
@@ -24,6 +24,7 @@
 * ⚙️ 簡単な設定で管理ができます。
 * たぶん全部のサーバーをサポートしてます。
   * すぐにパックを簡単に切り替えることができます。
+  * パックの取得先を変更し、別のサーバーパックでプレイすることができます。
   * 選択したサーバーの参加人数がすぐに見られます
 * ランチャーは自動更新され安全な状態へ更新されます。(ただし確認が必要な場合があります。)
 
