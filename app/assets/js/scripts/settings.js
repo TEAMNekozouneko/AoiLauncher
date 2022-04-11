@@ -79,9 +79,22 @@ function bindFileSelectors() {
     for (let ele of document.getElementsByClassName('settingsReleaseSelButton')) {
 
         ele.onclick = async e => {
-            const distURL = document.getElementsByClassName('settingsReleaseSelVal').value
+            let distURL = document.getElementById('settingsReleaseValue')
 
-            ConfigManager.setDefaultRelease(distURL);
+            if (distURL.value === '<default>' || distURL.value === 'null' || distURL.value === '' || distURL.value === null) {
+                distURL.value = 'https://raw.githubusercontent.com/TEAMNekozouneko/AoiModPacks/master/distribution.json'
+            } 
+
+            ConfigManager.setDefaultRelease(distURL.value)
+
+            saveSettingsValues()
+            saveModConfiguration()
+            ConfigManager.save()
+            saveDropinModConfiguration()
+            saveShaderpackSettings()
+
+            remote.app.relaunch()
+            remote.app.quit()
         }
     }
 }
@@ -1187,8 +1200,6 @@ function populateMemoryStatus() {
  * @param {string} execPath The executable path to populate against.
  */
 function populateJavaExecDetails(execPath, version) {
-    ConfigManager.setJavaExecutable(execPath, version)
-    ConfigManager.save()
     const jg = new JavaGuard(DistroManager.getDistribution().getServer(ConfigManager.getSelectedServer()).getMinecraftVersion())
     jg._validateJavaBinary(execPath).then(v => {
         if (v.valid) {
