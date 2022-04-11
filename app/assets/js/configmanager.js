@@ -576,11 +576,32 @@ exports.getJavaExecutable = function(version){
 }
 
 /**
+ * Retrieve the path of the Java Executable.
+ * 
+ * This is a resolved configuration value and defaults to null until externally assigned.
+ * 
+ * @returns {string} The path of the Java Executable.
+ */
+ exports.getJavaExecutable17 = function(version){
+    console.log(config.settings.java.executables)
+    return config.settings.java.executables[version]
+}
+
+/**
  * Set the path of the Java Executable.
  * 
  * @param {string} executable The new path of the Java Executable.
  */
 exports.setJavaExecutable = function(executable, version){
+    config.settings.java.executables[version] = executable
+}
+
+/**
+ * Set the path of the Java Executable.
+ * 
+ * @param {string} executable The new path of the Java Executable.
+ */
+ exports.setJavaExecutable17 = function(executable, version){
     config.settings.java.executables[version] = executable
 }
 
