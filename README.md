@@ -1,4 +1,4 @@
-[オリジナル (HeliosLauncher)](github.com/dscalzi/HeliosLauncher) [フォーク元 (沼ランチャー)](https://github.com/TeamKun/NumaLauncher)
+[オリジナル/Original (HeliosLauncher)](github.com/dscalzi/HeliosLauncher) [フォーク元 (沼ランチャー)](https://github.com/TeamKun/NumaLauncher)
 
 <p align="center"><img src="./app/assets/images/SealCircle.svg" width="150px" height="150px" alt="aventium softworks"></p>
 
@@ -36,25 +36,25 @@
 
 ## ダウンロード
 
-GitHubの[リリースページ](https://github.com/TEAMNekozouneko/AoiLauncher/releases) からダウンロードできます。
+GitHubの[リリースページ](https://github.com/TEAMNekozouneko/AoiLauncher/releases)からダウンロードできます。
 
 #### 最新リリース
 
-[![](https://img.shields.io/github/release/TEAMNekozouneko/AoiLauncher.svg?style=flat-square)](https://github.com/dscalzi/HeliosLauncher/releases/latest)
+[![](https://img.shields.io/github/release/TEAMNekozouneko/AoiLauncher?display_name=tag&label=%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9&style=flat-square)](https://github.com/TEAMNekozouneko/AoiLauncher/releases/latest)
 
 #### 最新プレリリース
-[![](https://img.shields.io/github/release/TEAMNekozouneko/AoiLauncher/all.svg?style=flat-square)](https://github.com/dscalzi/HeliosLauncher/releases)
+[![](https://img.shields.io/github/release/TEAMNekozouneko/AoiLauncher/all.svg?style=flat-square&display_name=tag&label=%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9)](https://github.com/TEAMNekozouneko/AoiLauncher/releases)
 
 **サポートされたプラットフォーム**
 
 ダウンロードはGitHubの[リリース](https://github.com/TEAMNekozouneko/AoiLauncher/releases) ページから出来ます。
 
-| プラットフォーム| ファイル                                  |
-| ------------- | --------------------------------------- |
-| Windows 64bit | `AoiLauncher-setup-<VERSION>.exe`       |
-| macOS 64bit   | `AoiLauncher-setup-<VERSION>-x64.dmg`   |
-| macOS ARM64   | `AoiLauncher-setup-<VERSION>-arm64.dmg` |
-| Linux 64bit   | `AoiLauncher-setup-<VERSION>.AppImage`  |
+| プラットフォーム | ファイル                                  |
+| -------------- | --------------------------------------- |
+| Windows 64bit  | `AoiLauncher-setup-<VERSION>.exe`       |
+| macOS 64bit    | `AoiLauncher-setup-<VERSION>-x64.dmg`   |
+| macOS ARM64    | `AoiLauncher-setup-<VERSION>-arm64.dmg` |
+| Linux 64bit    | `AoiLauncher-setup-<VERSION>.AppImage`  |
 
 ## コンソール
 
@@ -66,20 +66,20 @@ Ctrl + Shift + I
 
 コンソールタブを開いてることを確認した上で使用してください。また必要以下の技術がない人は使用しないことをおすすめします。トークンなどが流出する危険性があります。
 
-#### Export Output to a File
+#### コンソールファイルをエクスポートする。
 
-If you want to export the console output, simply right click anywhere on the console and click **Save as..**
+コンソールをログを保存したい場合、ログを右クリックして`Save as...`をクリックして保存ができます。
 
 ![console example](https://i.imgur.com/T5e73jP.png)
 
 
-## Development
+## 開発する
 
-### Getting Started
+### 開発を始める
 
 **必要な環境**
 
-* [Node.js][nodejs] v16.x.x
+* [Node.js][nodejs] v16以降
 
 ---
 
@@ -121,91 +121,38 @@ MacOSのビルドはWindows/Linuxではできません、逆も同様できま�
 
 ---
 
-### Visual Studio Code
+### サードパーティラインセス
 
-All development of the launcher should be done using [Visual Studio Code][vscode].
+> ※誤訳がある可能性があります。おかしい場合は[Issues][issues]にお願いします。<br>
+> ※There may be some mistranslations. If it is not correct, please contact the [Issues][issues].
 
-Paste the following into `.vscode/launch.json`
+以下の条件を満たす限り、本ソフトウェアをご自身のプロジェクトで使用することができます。
 
-```JSON
-{
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "Debug Main Process",
-      "type": "node",
-      "request": "launch",
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/node_modules/electron/cli.js",
-      "args" : ["."],
-      "outputCapture": "std"
-    },
-    {
-      "name": "Debug Renderer Process",
-      "type": "chrome",
-      "request": "launch",
-      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
-      "windows": {
-        "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd"
-      },
-      "runtimeArgs": [
-        "${workspaceFolder}/.",
-        "--remote-debugging-port=9222"
-      ],
-      "webRoot": "${workspaceFolder}"
-    }
-  ]
-}
-```
+* 原作者 (Daniel Scalzi) のクレジットを記入する。
+  * オリジナルのソースコード ([HeliosLauncher](https://github.com/dscalzi/HeliosLauncher))のGitHubのURLを詳細/Aboutのページに貼る
+  * 原作者達のクレジットをダウンロードページや公開ページのどれかに記入する。
+* ソースコードを**公開**として改造してください。
 
-This adds two debug configurations.
-
-#### Debug Main Process
-
-This allows you to debug Electron's [main process][mainprocess]. You can debug scripts in the [renderer process][rendererprocess] by opening the DevTools Window.
-
-#### Debug Renderer Process
-
-This allows you to debug Electron's [renderer process][rendererprocess]. This requires you to install the [Debugger for Chrome][chromedebugger] extension.
-
-Note that you **cannot** open the DevTools window while using this debug configuration. Chromium only allows one debugger, opening another will crash the program.
+[原作者](https://github.com/dscalzi/)は、これらの条件をいつでも更新できる権利があるため、定期的に確認してください。
 
 ---
 
-### Note on Third-Party Usage
-
-You may use this software in your own project so long as the following conditions are met.
-
-* Credit is expressly given to the original authors (Daniel Scalzi).
-  * Include a link to the original source on the launcher's About page.
-  * Credit the authors and provide a link to the original source in any publications or download pages.
-* The source code remain **public** as a fork of this repository.
-
-We reserve the right to update these conditions at any time, please check back periodically.
-
----
-
-## Resources
+## リソースやリンク
 
 * [Wiki][wiki]
-* [Nebula (Create Distribution.json)][nebula]
-* [v2 Rewrite Branch (WIP)][v2branch]
+* [AoiModPacks (distribution.json)][amp]
 
-The best way to contact the developers is on Discord.
+なにか問題が合った場合はDiscordまで
 
-[![discord](https://discordapp.com/api/guilds/896668963709255680/embed.png?style=banner3)][discord]
+[![discord](https://discordapp.com/api/guilds/896668963709255680/embed.png?style=banner4)][discord]
 
 ---
 
-### See you ingame.
+### ゲームで会おう!
 
-
-[nodejs]: https://nodejs.org/en/ 'Node.js'
+[issues]: https://github.com/TEAMNekozouneko/AoiLauncher/issues
+[nodejs]: https://nodejs.org/ja/ 'Node.js'
 [vscode]: https://code.visualstudio.com/ 'Visual Studio Code'
-[mainprocess]: https://electronjs.org/docs/tutorial/application-architecture#main-and-renderer-processes 'Main Process'
-[rendererprocess]: https://electronjs.org/docs/tutorial/application-architecture#main-and-renderer-processes 'Renderer Process'
-[chromedebugger]: https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome 'Debugger for Chrome'
-[discord]: https://discord.gg/zNWUXdt 'Discord'
-[wiki]: https://github.com/dscalzi/HeliosLauncher/wiki 'wiki'
-[nebula]: https://github.com/dscalzi/Nebula 'dscalzi/Nebula'
-[v2branch]: https://github.com/dscalzi/HeliosLauncher/tree/ts-refactor 'v2 branch'
+[discord]: https://nekozouneko.ddns.net/discord 'Discord'
+[wiki]: https://github.com/TEAMNekozouneko/AoiLauncher/wiki 'wiki'
+[amp]: https://github.com/TEAMNekozouneko/AoiModPacks 'AoiModPacks'
