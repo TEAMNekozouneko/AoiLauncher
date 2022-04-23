@@ -10,7 +10,7 @@ const axios = axiosBase.create({
 })
 let isSecured = false
 
-$(window).on('load', async () => {
+/**$(window).on('load', async () => {
     isSecured = await isCurrentIPSecured()
     const questions = await fetchSecurityQuestions()
     const submitSecretQuestionContent = `
@@ -64,7 +64,7 @@ $(window).on('load', async () => {
             $('#submitSecretQuestionContent').fadeOut()
         }
     )
-})
+})**/
 
 $('#newsButton').on(
     'click',
@@ -85,7 +85,7 @@ $('#newsButton').on(
     })()
 )
 
-function submit() {
+/**function submit() {
     //再送信防止用フラグ
     let isSubmitting = false
 
@@ -196,4 +196,4 @@ async function sendSecurityAnswers(answers) {
             },
         ],
     })
-}
+}*/

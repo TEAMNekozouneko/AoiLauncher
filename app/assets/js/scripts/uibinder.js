@@ -336,8 +336,6 @@ async function validateSelectedAccount(){
                 '別のアカウントを選択'
             )
             setOverlayHandler(() => {
-                document.getElementById('loginUsername').value = selectedAcc.username
-                validateEmail(selectedAcc.username)
                 loginViewOnSuccess = getCurrentView()
                 loginViewOnCancel = getCurrentView()
                 if(accLen > 0){

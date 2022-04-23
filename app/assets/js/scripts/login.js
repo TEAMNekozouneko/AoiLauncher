@@ -9,13 +9,6 @@ const basicEmail            = /^\S+@\S+\.\S+$/
 // Login Elements
 const loginCancelContainer  = document.getElementById('loginCancelContainer')
 const loginCancelButton     = document.getElementById('loginCancelButton')
-const loginEmailError       = document.getElementById('loginEmailError')
-const loginUsername         = document.getElementById('loginUsername')
-const loginPasswordError    = document.getElementById('loginPasswordError')
-const loginPassword         = document.getElementById('loginPassword')
-const checkmarkContainer    = document.getElementById('checkmarkContainer')
-const loginRememberOption   = document.getElementById('loginRememberOption')
-const loginButton           = document.getElementById('loginButton')
 const loginForm             = document.getElementById('loginForm')
 const loginMSButton         = document.getElementById('loginMSButton')
 
@@ -93,140 +86,6 @@ function validatePassword(value){
     }
 }
 
-// Emphasize errors with shake when focus is lost.
-loginUsername.addEventListener('focusout', (e) => {
-    validateEmail(e.target.value)
-    shakeError(loginEmailError)
-})
-loginPassword.addEventListener('focusout', (e) => {
-    validatePassword(e.target.value)
-    shakeError(loginPasswordError)
-})
-
-// Validate input for each field.
-loginUsername.addEventListener('input', (e) => {
-    validateEmail(e.target.value)
-})
-loginPassword.addEventListener('input', (e) => {
-    validatePassword(e.target.value)
-})
-
-/**
- * Enable or disable the login button.
- * 
- * @param {boolean} v True to enable, false to disable.
- */
-function loginDisabled(v){
-    if(loginButton.disabled !== v){
-        loginButton.disabled = v
-    }
-}
-
-/**
- * Enable or disable loading elements.
- * 
- * @param {boolean} v True to enable, false to disable.
- */
-function loginLoading(v){
-    if(v){
-        loginButton.setAttribute('loading', v)
-        loginButton.innerHTML = loginButton.innerHTML.replace(Lang.queryJS('login.login'), Lang.queryJS('login.loggingIn'))
-    } else {
-        loginButton.removeAttribute('loading')
-        loginButton.innerHTML = loginButton.innerHTML.replace(Lang.queryJS('login.loggingIn'), Lang.queryJS('login.login'))
-    }
-}
-
-/**
- * Enable or disable login form.
- * 
- * @param {boolean} v True to enable, false to disable.
- */
-function formDisabled(v){
-    loginDisabled(v)
-    loginCancelButton.disabled = v
-    loginUsername.disabled = v
-    loginPassword.disabled = v
-    if(v){
-        checkmarkContainer.setAttribute('disabled', v)
-    } else {
-        checkmarkContainer.removeAttribute('disabled')
-    }
-    loginRememberOption.disabled = v
-}
-
-/**
- * Parses an error and returns a user-friendly title and description
- * for our error overlay.
- * 
- * @param {Error | {cause: string, error: string, errorMessage: string}} err A Node.js
- * error or Mojang error response.
- */
-function resolveError(err){
-    // Mojang Response => err.cause | err.error | err.errorMessage
-    // Node error => err.code | err.message
-    if(err.cause != null && err.cause === 'UserMigratedException') {
-        return {
-            title: Lang.queryJS('login.error.userMigrated.title'),
-            desc: Lang.queryJS('login.error.userMigrated.desc')
-        }
-    } else {
-        if(err.error != null){
-            if(err.error === 'ForbiddenOperationException'){
-                if(err.errorMessage != null){
-                    if(err.errorMessage === 'Invalid credentials. Invalid username or password.'){
-                        return {
-                            title: Lang.queryJS('login.error.invalidCredentials.title'),
-                            desc: Lang.queryJS('login.error.invalidCredentials.desc')
-                        }
-                    } else if(err.errorMessage === 'Invalid credentials.'){
-                        return {
-                            title: Lang.queryJS('login.error.rateLimit.title'),
-                            desc: Lang.queryJS('login.error.rateLimit.desc')
-                        }
-                    }
-                }
-            }
-        } else {
-            // Request errors (from Node).
-            if(err.code != null){
-                if(err.code === 'ENOENT'){
-                    // No Internet.
-                    return {
-                        title: Lang.queryJS('login.error.noInternet.title'),
-                        desc: Lang.queryJS('login.error.noInternet.desc')
-                    }
-                } else if(err.code === 'ENOTFOUND'){
-                    // Could not reach server.
-                    return {
-                        title: Lang.queryJS('login.error.authDown.title'),
-                        desc: Lang.queryJS('login.error.authDown.desc')
-                    }
-                }
-            }
-        }
-    }
-    if(err.message != null){
-        if(err.message === 'NotPaidAccount'){
-            return {
-                title: Lang.queryJS('login.error.notPaid.title'),
-                desc: Lang.queryJS('login.error.notPaid.desc')
-            }
-        } else {
-            // Unknown error with request.
-            return {
-                title: Lang.queryJS('login.error.unknown.title'),
-                desc: err.message
-            }
-        }
-    } else {
-        // Unknown Mojang error.
-        return {
-            title: err.error,
-            desc: err.errorMessage
-        }
-    }
-}
 
 let loginViewOnSuccess = VIEWS.landing
 let loginViewOnCancel = VIEWS.settings
@@ -242,8 +101,6 @@ function loginCancelEnabled(val){
 
 loginCancelButton.onclick = (e) => {
     switchView(getCurrentView(), loginViewOnCancel, 500, 500, () => {
-        loginUsername.value = ''
-        loginPassword.value = ''
         loginCancelEnabled(false)
         if(loginViewCancelHandler != null){
             loginViewCancelHandler()
@@ -252,8 +109,9 @@ loginCancelButton.onclick = (e) => {
     })
 }
 
+/**
 // Disable default form behavior.
-loginForm.onsubmit = () => { return false }
+//loginForm.onsubmit = () => { return false }
 
 // Bind login button behavior.
 loginButton.addEventListener('click', () => {
@@ -299,7 +157,7 @@ loginButton.addEventListener('click', () => {
         loggerLogin.log('Error while logging in.', err)
     })
 
-})
+})*/
 
 loginMSButton.addEventListener('click', (event) => {
     // Show loading stuff.
@@ -312,9 +170,10 @@ ipcRenderer.on('MSALoginWindowReply', (event, ...args) => {
     if (args[0] === 'error') {
         
         loginMSButton.disabled = false
-        loginLoading(false)
+        //loginLoading(false)
         switch (args[1]){
             case 'AlreadyOpenException': {
+                toggleOverlay(false)
                 setOverlayContent('ERROR', 'すでにログインウィンドウが開いています！', 'OK')
                 setOverlayHandler(() => {
                     toggleOverlay(false)
@@ -324,6 +183,7 @@ ipcRenderer.on('MSALoginWindowReply', (event, ...args) => {
                 return
             }
             case 'AuthNotFinished': {
+                toggleOverlay(false)
                 setOverlayContent('ERROR', 'AoiLauncherを使用するには、ログインが必要です。ログインに成功すると、ウィンドウは自動的に閉じます。', 'OK')
                 setOverlayHandler(() => {
                     toggleOverlay(false)
