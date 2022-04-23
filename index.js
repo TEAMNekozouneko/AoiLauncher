@@ -36,9 +36,11 @@ function initAutoUpdater(event, data) {
         autoUpdater.autoDownload = false
     }
     autoUpdater.on('update-available', (info) => {
+        new Notification('更新を確認しました。', 'あおいランチャーの更新が利用可能です。')
         event.sender.send('autoUpdateNotification', 'update-available', info)
     })
     autoUpdater.on('update-downloaded', (info) => {
+        new Notification('更新のダウンロードが完了しました。', 'あおいランチャーの更新が利用可能です。')
         event.sender.send('autoUpdateNotification', 'update-downloaded', info)
     })
     autoUpdater.on('update-not-available', (info) => {
