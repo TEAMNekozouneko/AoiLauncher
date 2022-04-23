@@ -7,7 +7,6 @@ const logger = require('./loggerutil')('%c[ConfigManager]', 'color: #a02d2a; fon
 const sysRoot = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 // TODO change
 const dataPath = path.join(sysRoot, '.aoilauncher')
-console.log(`Appdata dir ${dataPath}`)
 
 // Forked processes do not have access to electron, so we have this workaround.
 const launcherDir = process.env.CONFIG_DIRECT_PATH || require('@electron/remote').app.getPath('userData')
@@ -42,7 +41,6 @@ exports.setDataDirectory = function(dataDirectory){
 
 const configPath = path.join(exports.getLauncherDirectory(), 'config.json')
 
-console.log(`ConfigPath: ${configPath}`)
 const configPathLEGACY = path.join(dataPath, 'config.json')
 const firstLaunch = !fs.existsSync(configPath) && !fs.existsSync(configPathLEGACY)
 
@@ -571,7 +569,6 @@ exports.setMaxRAM = function(maxRAM){
  * @returns {string} The path of the Java Executable.
  */
 exports.getJavaExecutable = function(version){
-    console.log(config.settings.java.executables)
     return config.settings.java.executables[version]
 }
 
@@ -583,7 +580,6 @@ exports.getJavaExecutable = function(version){
  * @returns {string} The path of the Java Executable.
  */
  exports.getJavaExecutable17 = function(version){
-    console.log(config.settings.java.executables)
     return config.settings.java.executables[version]
 }
 
