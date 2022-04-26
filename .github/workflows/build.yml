@@ -1,4 +1,4 @@
-name: Launcher Build
+name: ランチャーをビルドしリリース
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
         uses: battila7/get-version-action@v2
 
       ##ReleaseChannel - go!
-      - name: Create Release
+      - name: リリースページを作成
         id: create_release
         uses: actions/create-release@v1
         env:
