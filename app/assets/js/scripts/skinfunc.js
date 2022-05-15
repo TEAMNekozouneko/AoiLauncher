@@ -25,6 +25,9 @@ APIへの反映 GET
 // 3dview今着ているスキンの呼び出しAPI
 async function getNowSkin() {
     try {
+        if (ConfigManager.getSelectedAccount().uuid == undefined) {
+            return;
+        }
         const response = await axios.get(
             `https://sessionserver.mojang.com/session/minecraft/profile/${ConfigManager.getSelectedAccount().uuid}`
         )
