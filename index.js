@@ -16,7 +16,7 @@ const fsExtra = require('fs-extra')
 const crypto = require('crypto')
 
 const redirectUriPrefix = 'https://login.microsoftonline.com/common/oauth2/nativeclient?'
-const clientID = 'ce9c7ade-7cee-4c4c-83bc-0c0edafdcaea'
+const clientID = 'ebe8289c-fc4c-4e4f-a6cd-2eef9f89498b'
 
 // Setup auto updater.
 function initAutoUpdater(event, data) {
