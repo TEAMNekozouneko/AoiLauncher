@@ -1,4 +1,4 @@
-const selectedUUID = ConfigManager.getSelectedAccount().uuid
+//const selectedUUID = ConfigManager.getSelectedAccount().uuid
 
 const axiosBase = require('axios')
 const { resolveFiles } = require('electron-updater/out/providers/Provider')
