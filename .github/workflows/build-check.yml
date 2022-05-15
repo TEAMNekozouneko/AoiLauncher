@@ -1,9 +1,10 @@
-name: ランチャーがビルド可能か試験
+name: Build check
 
 on: ['pull_request', 'push']
 
 jobs:
   build:
+    name: Build check
     runs-on: ${{ matrix.os }}
 
     strategy:
