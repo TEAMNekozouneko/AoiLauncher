@@ -183,7 +183,6 @@ ipcRenderer.on('MSALoginWindowReply', (event, ...args) => {
                 return
             }
             case 'AuthNotFinished': {
-                toggleOverlay(false)
                 setOverlayContent('ERROR', 'AoiLauncherを使用するには、ログインが必要です。ログインに成功すると、ウィンドウは自動的に閉じます。', 'OK')
                 setOverlayHandler(() => {
                     toggleOverlay(false)
@@ -195,13 +194,13 @@ ipcRenderer.on('MSALoginWindowReply', (event, ...args) => {
         }
         
     }
-    toggleOverlay(false, false, 'msOverlay')
+    toggleOverlay(true, false, 'msOverlay')
     const queryMap = args[0]
     if (queryMap.has('error')) {
         let error = queryMap.get('error')
         let errorDesc = queryMap.get('error_description')
         if(error === 'access_denied'){
-            error = 'ERRPR'
+            error = 'ERROR'
             errorDesc = 'To use the Helios Launcher, you must agree to the required permissions! Otherwise you can\'t use this launcher with Microsoft accounts.<br><br>Despite agreeing to the permissions you don\'t give us the possibility to do anything with your account, because all data will always be sent back to you (the launcher) IMMEDIATELY and WITHOUT WAY.'
         }        
         setOverlayContent(error, errorDesc, 'OK')
@@ -213,13 +212,10 @@ ipcRenderer.on('MSALoginWindowReply', (event, ...args) => {
         return
     }
 
-    // Disable form.
-    formDisabled(true)
-
     const authCode = queryMap.get('code')
     AuthManager.addMSAccount(authCode).then(account => {
         updateSelectedAccount(account)
-        loginButton.innerHTML = loginButton.innerHTML.replace(Lang.queryJS('login.loggingIn'), Lang.queryJS('login.success'))
+        //loginButton.innerHTML = loginButton.innerHTML.replace(Lang.queryJS('login.loggingIn'), Lang.queryJS('login.success'))
         $('.circle-loader').toggleClass('load-complete')
         $('.checkmark').toggle()
         setTimeout(() => {
@@ -231,22 +227,19 @@ ipcRenderer.on('MSALoginWindowReply', (event, ...args) => {
                 loginViewOnSuccess = VIEWS.landing // Reset this for good measure.
                 loginCancelEnabled(false) // Reset this for good measure.
                 loginViewCancelHandler = null // Reset this for good measure.
-                loginUsername.value = ''
-                loginPassword.value = ''
                 $('.circle-loader').toggleClass('load-complete')
                 $('.checkmark').toggle()
-                loginLoading(false)
-                loginButton.innerHTML = loginButton.innerHTML.replace(Lang.queryJS('login.success'), Lang.queryJS('login.login'))
-                formDisabled(false)
+                //loginLoading(false)
+                //loginButton.innerHTML = loginButton.innerHTML.replace(Lang.queryJS('login.success'), Lang.queryJS('login.login'))
+                //formDisabled(false)
                 toggleOverlay(false)
             })
         }, 1000)
     }).catch(error => {
         loginMSButton.disabled = false
-        loginLoading(false)
         setOverlayContent('ERROR', error.message ? error.message : 'Microsoftでのログイン中にエラーが発生しました！詳細については、ログを確認してください。 CTRL + SHIFT + Iで開くことができます。', Lang.queryJS('login.tryAgain'))
         setOverlayHandler(() => {
-            formDisabled(false)
+            //formDisabled(false)
             toggleOverlay(false)
         })
         toggleOverlay(true)
