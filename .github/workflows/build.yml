@@ -69,6 +69,8 @@ jobs:
       ##CreateAPP - yarn release
       - name: NPM install
         run: npm install
+      - name: NPM AUDIT fix
+        run: npm audit fix
 
       - name: NPM Dist MacOS
         if: matrix.os == 'macos-latest'
