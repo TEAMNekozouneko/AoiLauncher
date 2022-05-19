@@ -462,7 +462,6 @@ class JavaGuard extends EventEmitter {
             if(props[i].indexOf('sun.arch.data.model') > -1){
                 let arch = props[i].split('=')[1].trim()
                 arch = parseInt(arch)
-                console.log(props[i].trim())
                 if(arch === 64){
                     meta.arch = arch
                     ++checksum
@@ -472,7 +471,6 @@ class JavaGuard extends EventEmitter {
                 }
             } else if(props[i].indexOf('java.runtime.version') > -1){
                 let verString = props[i].split('=')[1].trim()
-                console.log(props[i].trim())
                 const verOb = JavaGuard.parseJavaRuntimeVersion(verString)
                 if(verOb.major < 9){
                     // Java 8
@@ -497,7 +495,6 @@ class JavaGuard extends EventEmitter {
                 // Space included so we get only the vendor.
             } else if(props[i].lastIndexOf('java.vendor ') > -1) {
                 let vendorName = props[i].split('=')[1].trim()
-                console.log(props[i].trim())
                 meta.vendor = vendorName
             }
         }

@@ -59,15 +59,8 @@ class ProcessBuilder {
             args = args.concat(this.constructModList(modObj.fMods))
         }
 
-        logger.log('Launch Arguments:', args)
-        logger.log('Launch cmd', [ConfigManager.getJavaExecutable(), args])
-        logger.log("Game dir", this.gameDir)
-        logger.log("javajar", ConfigManager.getLaunchDetached())
-
         // Javaバージョン
         const javaVersion = Util.getJavaVersionFromMcVersion(this.server.getMinecraftVersion())
-        logger.log('Java Version: ', javaVersion)
-        logger.log('Java path: ', ConfigManager.getJavaExecutable(javaVersion))
 
         const child = child_process.spawn(ConfigManager.getJavaExecutable(javaVersion), args, {
             cwd: this.gameDir,
@@ -91,12 +84,13 @@ class ProcessBuilder {
             loggerMCstderr.log(data)
         })
         child.on('close', (code, signal) => {
-            logger.log('Exited with code', code)
+            logger.log(code, 'で終了しました')
+            
             fs.remove(tempNativePath, (err) => {
                 if(err){
-                    logger.warn('Error while deleting temp dir', err)
+                    logger.warn('一時削除に失敗しました: ', err)
                 } else {
-                    logger.log('Temp dir deleted successfully.')
+                    logger.log('一時フォルダを削除しました。')
                 }
             })
         })
