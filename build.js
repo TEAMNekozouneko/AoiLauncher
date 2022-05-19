@@ -21,7 +21,7 @@ builder.build({
         appId: 'aoilauncher',
         productName: 'AoiLauncher',
         artifactName: '${productName}-setup-${version}.${ext}',
-        copyright: 'Copyright © 2018-2020 Daniel Scalzi, 2020 Kamesuta, 2022 Taitaitatata, runq_JP',
+        copyright: 'Copyright (c) 2018-2020 Daniel Scalzi, 2020 Kamesuta, 2022 Taitaitatata, runq_JP',
         directories: {
             buildResources: 'build',
             output: 'dist'
