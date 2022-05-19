@@ -36,7 +36,6 @@ function initAutoUpdater(event, data) {
         autoUpdater.autoDownload = false
     }
     autoUpdater.on('update-available', (info) => {
-        new Notification('更新を確認しました。', 'あおいランチャーの更新が利用可能です。')
         event.sender.send('autoUpdateNotification', 'update-available', info)
     })
     autoUpdater.on('update-downloaded', (info) => {
@@ -393,14 +392,14 @@ function createMenu() {
 
         // Extend default included application menu to continue support for quit keyboard shortcut
         let applicationSubMenu = {
-            label: 'Application',
+            label: 'アプリケーション',
             submenu: [{
-                label: 'About Application',
+                label: 'このアプリについて',
                 selector: 'orderFrontStandardAboutPanel:'
             }, {
                 type: 'separator'
             }, {
-                label: 'Quit',
+                label: '終了',
                 accelerator: 'Command+Q',
                 click: () => {
                     app.quit()
@@ -410,31 +409,31 @@ function createMenu() {
 
         // New edit menu adds support for text-editing keyboard shortcuts
         let editSubMenu = {
-            label: 'Edit',
+            label: '編集',
             submenu: [{
-                label: 'Undo',
+                label: '元に戻す',
                 accelerator: 'CmdOrCtrl+Z',
                 selector: 'undo:'
             }, {
-                label: 'Redo',
+                label: 'やり直し',
                 accelerator: 'Shift+CmdOrCtrl+Z',
                 selector: 'redo:'
             }, {
                 type: 'separator'
             }, {
-                label: 'Cut',
+                label: '切り取り',
                 accelerator: 'CmdOrCtrl+X',
                 selector: 'cut:'
             }, {
-                label: 'Copy',
+                label: 'コピー',
                 accelerator: 'CmdOrCtrl+C',
                 selector: 'copy:'
             }, {
-                label: 'Paste',
+                label: '貼り付け',
                 accelerator: 'CmdOrCtrl+V',
                 selector: 'paste:'
             }, {
-                label: 'Select All',
+                label: 'すべて選択',
                 accelerator: 'CmdOrCtrl+A',
                 selector: 'selectAll:'
             }]
