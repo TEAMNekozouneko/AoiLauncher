@@ -46,13 +46,13 @@ const firstLaunch = !fs.existsSync(configPath) && !fs.existsSync(configPathLEGAC
 
 exports.getAbsoluteMinRAM = function(){
     const mem = os.totalmem()
-    return mem >= 6000000000 ? 3 : 2
+    return mem >= 4294967296 ? 1 : 0.5
 }
 
 exports.getAbsoluteMaxRAM = function(){
     const mem = os.totalmem()
     const gT16 = mem-16000000000
-    return Math.floor((mem-1000000000-(gT16 > 0 ? (Number.parseInt(gT16/8) + 16000000000/4) : mem/4))/1000000000)
+    return Math.floor((mem-1000000000-(gT16 > 0 ? (Number.parseInt(gT16/8) + 16000000000/4) : mem/4))/1073741824)
 }
 
 function resolveMaxRAM(){

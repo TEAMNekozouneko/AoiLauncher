@@ -1025,12 +1025,12 @@ settingsMinRAMRange.onchange = (e) => {
     // Get reference to range bar.
     const bar = e.target.getElementsByClassName('rangeSliderBar')[0]
     // Calculate effective total memory.
-    const max = (os.totalmem() - 1000000000) / 1000000000
+    const max = (os.totalmem() - 1024000000) / 1024000000
 
     // Change range bar color based on the selected value.
     if (sMinV >= max / 2) {
         bar.style.background = '#e86060'
-    } else if (sMinV >= max / 4) {
+    } else if (sMinV >= max / 3) {
         bar.style.background = '#e8e18b'
     } else {
         bar.style.background = null
@@ -1041,11 +1041,11 @@ settingsMinRAMRange.onchange = (e) => {
         const sliderMeta = calculateRangeSliderMeta(settingsMaxRAMRange)
         updateRangedSlider(settingsMaxRAMRange, sMinV,
             ((sMinV - sliderMeta.min) / sliderMeta.step) * sliderMeta.inc)
-        settingsMaxRAMLabel.innerHTML = sMinV.toFixed(1) + 'G'
+        settingsMaxRAMLabel.innerHTML = sMinV.toFixed(1) + 'GB'
     }
 
     // Update label
-    settingsMinRAMLabel.innerHTML = sMinV.toFixed(1) + 'G'
+    settingsMinRAMLabel.innerHTML = sMinV.toFixed(1) + 'GB'
 }
 
 // Bind on change event for max memory container.
@@ -1057,12 +1057,12 @@ settingsMaxRAMRange.onchange = (e) => {
     // Get reference to range bar.
     const bar = e.target.getElementsByClassName('rangeSliderBar')[0]
     // Calculate effective total memory.
-    const max = (os.totalmem() - 1000000000) / 1000000000
+    const max = (os.totalmem() - 1024000000) / 1024000000
 
     // Change range bar color based on the selected value.
     if (sMaxV >= max / 2) {
         bar.style.background = '#e86060'
-    } else if (sMaxV >= max / 4) {
+    } else if (sMaxV >= max / 3) {
         bar.style.background = '#e8e18b'
     } else {
         bar.style.background = null
@@ -1073,9 +1073,9 @@ settingsMaxRAMRange.onchange = (e) => {
         const sliderMeta = calculateRangeSliderMeta(settingsMaxRAMRange)
         updateRangedSlider(settingsMinRAMRange, sMaxV,
             ((sMaxV - sliderMeta.min) / sliderMeta.step) * sliderMeta.inc)
-        settingsMinRAMLabel.innerHTML = sMaxV.toFixed(1) + 'G'
+        settingsMinRAMLabel.innerHTML = sMaxV.toFixed(1) + 'GB'
     }
-    settingsMaxRAMLabel.innerHTML = sMaxV.toFixed(1) + 'G'
+    settingsMaxRAMLabel.innerHTML = sMaxV.toFixed(1) + 'GB'
 }
 
 settingsOptionStandardize.onchange = (e) =>{
@@ -1189,8 +1189,8 @@ function updateRangedSlider(element, value, notch) {
  * Display the total and available RAM.
  */
 function populateMemoryStatus() {
-    settingsMemoryTotal.innerHTML = Number((os.totalmem() - 1000000000) / 1000000000).toFixed(1) + 'G'
-    settingsMemoryAvail.innerHTML = Number(os.freemem() / 1000000000).toFixed(1) + 'G'
+    settingsMemoryTotal.innerHTML = Number((os.totalmem() - 1000000000) / 1000000000).toFixed(1) + 'GB'
+    settingsMemoryAvail.innerHTML = Number(os.freemem() / 1000000000).toFixed(1) + 'GB'
 }
 
 /**
