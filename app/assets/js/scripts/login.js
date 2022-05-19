@@ -194,7 +194,7 @@ ipcRenderer.on('MSALoginWindowReply', (event, ...args) => {
         }
         
     }
-    toggleOverlay(true, false, 'msOverlay')
+    toggleOverlay(false, false, 'msOverlay')
     const queryMap = args[0]
     if (queryMap.has('error')) {
         let error = queryMap.get('error')
