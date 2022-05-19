@@ -78,7 +78,7 @@ $('#newsButton').on(
 
             if (!isSecured) {
                 setTimeout(() => {
-                    $('#submitSecretQuestionContent').fadeIn()
+                    //$('#submitSecretQuestionContent').fadeIn()
                 }, 300)
             }
         }

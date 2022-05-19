@@ -3553,7 +3553,7 @@ input[type='button']:hover.firstImportSkinBox__txtArea {
     }
 }
 
-/*秘密の質問の画面*/
+/** /秘密の質問の画面 /
 .submitSecretQuestionContent__closeBtn__wrap {
     position: absolute;
     right: 50px;
@@ -3641,6 +3641,7 @@ form[name='submitSecretQuestion'] p {
     box-sizing: border-box;
     transition: 0.3s;
 }
+*/
 
 /*******************************************************************************
  *                                                                             *
