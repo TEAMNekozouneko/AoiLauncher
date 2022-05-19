@@ -63,6 +63,7 @@ function setLaunchPercentage(value, max, percent = ((value/max)*100)){
     launch_progress.setAttribute('max', max)
     launch_progress.setAttribute('value', value)
     launch_progress_label.innerHTML = percent + '%'
+    remote.getCurrentWindow().setProgressBar(value/max)
 }
 
 /**
@@ -710,6 +711,7 @@ async function dlAsync(version, login = true){
                     // 一定時間経ったらLoading表示を解除
                     setTimeout(() => { toggleLaunchArea(false) }, 10000)
 
+                    remote.getCurrentWindow().setProgressBar(0)
                     setLaunchDetails('読み込み完了！さぁ遊ぼう！')
 
                     // Init Discord Hook
